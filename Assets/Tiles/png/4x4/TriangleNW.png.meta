@@ -97,11 +97,11 @@ TextureImporter:
     outline:
     - - {x: -2, y: 2}
       - {x: -2, y: -2}
-      - {x: 2, y: -2}
+      - {x: 2, y: 2}
     physicsShape:
     - - {x: -2, y: 2}
       - {x: -2, y: -2}
-      - {x: 2, y: -2}
+      - {x: 2, y: 2}
     bones: []
     spriteID: dfa605bf1c9099f4494a784a6a2a59db
     vertices: []
