@@ -10,8 +10,6 @@ public class PlayerController : MonoBehaviour {
     private float horizontal;
     private Rigidbody2D rig;
 
-    public 
-
 	// Use this for initialization
 	void Start () {
         rig = GetComponent<Rigidbody2D>();
@@ -22,13 +20,14 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Space) && !inAir)
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && !inAir)
         {
             rig.AddForce(new Vector2(0, jumpForce));
             inAir = true;
         }
         horizontal = Input.GetAxis("Horizontal");
         rig.velocity = new Vector2(horizontal * moveSpeed, rig.velocity.y);
+        
 	}
 
     private void OnCollisionEnter2D(Collision2D collision)
