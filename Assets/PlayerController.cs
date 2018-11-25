@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rig = GetComponent<Rigidbody2D>();
-        jumpForce = 400f;
+        jumpForce = 450f;
         moveSpeed = 4.0f;
         inAir = true;
         jumpKeydown = false;
