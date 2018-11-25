@@ -46,7 +46,18 @@ public class PlayerController : MonoBehaviour {
         {
             float angle = Vector2.Angle(Vector2.up, contact.normal);
             if (angle < 90) inAir = false;
-            Debug.Log(angle + "----" + inAir);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "memory")
+        {
+            collision.gameObject.SetActive(false);
+        }
+        else if (collision.tag == "dead")
+        {
+            collision.gameObject.SetActive(false);
         }
     }
 }
