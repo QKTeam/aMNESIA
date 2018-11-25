@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class memory : MonoBehaviour {
+public class MemoryPieces : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

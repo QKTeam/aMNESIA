@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class pao : MonoBehaviour {
+public class Vesicle : MonoBehaviour {
 
     private float count;
     private bool speed;

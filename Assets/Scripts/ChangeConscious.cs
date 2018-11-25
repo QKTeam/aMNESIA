@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class changeConscious : MonoBehaviour {
+public class ChangeConscious : MonoBehaviour {
 
 	public GameObject surfaceConscious;
 	public GameObject subConscious;
