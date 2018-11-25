@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114485868903739108}
   - component: {fileID: 58240895042286798}
   m_Layer: 0
-  m_Name: pao
+  m_Name: Vesicle
   m_TagString: dead
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

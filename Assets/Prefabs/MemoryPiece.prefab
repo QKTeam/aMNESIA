@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114257164267227702}
   - component: {fileID: 58117373807917678}
   m_Layer: 0
-  m_Name: memory
+  m_Name: MemoryPiece
   m_TagString: memory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
