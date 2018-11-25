@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
     public float moveSpeed;
     public float jumpForce;
     private bool inAir;
+    private bool jumpKeydown;
     private float horizontal;
     private Rigidbody2D rig;
 
@@ -16,22 +17,36 @@ public class PlayerController : MonoBehaviour {
         jumpForce = 400f;
         moveSpeed = 4.0f;
         inAir = true;
+        jumpKeydown = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && !inAir)
+        if (Input.GetAxisRaw("Vertical") == 1)
         {
-            rig.AddForce(new Vector2(0, jumpForce));
-            inAir = true;
+            jumpKeydown = true;
+            if (!inAir)
+            {
+                rig.AddForce(new Vector2(0, jumpForce));
+                inAir = true;
+            }
         }
         horizontal = Input.GetAxis("Horizontal");
         rig.velocity = new Vector2(horizontal * moveSpeed, rig.velocity.y);
-        
 	}
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        inAir = false;
+        if (jumpKeydown)
+        {
+            jumpKeydown = false;
+            return;
+        }
+        foreach (ContactPoint2D contact in collision.contacts)
+        {
+            float angle = Vector2.Angle(Vector2.up, contact.normal);
+            if (angle < 90) inAir = false;
+            Debug.Log(angle + "----" + inAir);
+        }
     }
 }
