@@ -6,6 +6,9 @@ TagManager:
   tags:
   - memory
   - dead
+  - tutorial-1
+  - tutorial-2
+  - tutorial-3
   layers:
   - Default
   - TransparentFX

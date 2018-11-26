@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
     public float moveSpeed;
     public float jumpForce;
     public Canvas deadCanvas;
+    public Canvas tutorialCanvas;
+    public Button btn;
     private bool isAlive;
     private bool inAir;
     private bool jumpKeydown;
@@ -55,6 +58,11 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        inAir = true;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "memory")
@@ -70,6 +78,36 @@ public class PlayerController : MonoBehaviour {
             {
                 deadCanvas.gameObject.SetActive(true);
             }
+        }
+        else if (collision.tag == "tutorial-1")
+        {
+            if (tutorialCanvas)
+            {
+                tutorialCanvas.gameObject.SetActive(true);
+                btn.gameObject.SetActive(true);
+                Transform[] children;
+                children = tutorialCanvas.GetComponentsInChildren<Transform>();
+                foreach (Transform child in children)
+                {
+                    child.gameObject.SetActive(true);
+                }
+            }
+            //rig.velocity = Vector2.zero;
+            //enabled = false;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if  (collision.tag == "tutorial-1" )
+        {
+            Destroy(collision.gameObject);
+            /*tutorialCanvas.gameObject.SetActive(false);
+            Transform[] children = tutorialCanvas.GetComponentsInChildren<Transform>();
+            foreach (Transform child in children)
+            {
+                child.gameObject.SetActive(false);
+            }*/
         }
     }
 }
