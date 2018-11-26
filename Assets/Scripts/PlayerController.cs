@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -9,6 +10,7 @@ public class PlayerController : MonoBehaviour {
     public Canvas deadCanvas;
     private bool isAlive;
     private bool inAir;
+    private int pieceNum = 3;
     private bool jumpKeydown;
     private float horizontal;
     private Rigidbody2D rig;
@@ -39,6 +41,17 @@ public class PlayerController : MonoBehaviour {
             horizontal = Input.GetAxis("Horizontal");
             rig.velocity = new Vector2(horizontal * moveSpeed, rig.velocity.y);
         }
+        if (pieceNum == 0) {
+            rig.velocity = Vector3.zero;
+            rig.isKinematic = true;
+            if (deadCanvas)
+            {
+                Text wintext =
+                    deadCanvas.transform.GetChild(1).gameObject.GetComponent<Text>();
+                wintext.text = "You Win!";
+                deadCanvas.gameObject.SetActive(true);
+            } 
+        }
 	}
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -60,6 +73,7 @@ public class PlayerController : MonoBehaviour {
         if (collision.tag == "memory")
         {
             collision.gameObject.SetActive(false);
+            --pieceNum;
         }
         else if (collision.tag == "dead")
         {
