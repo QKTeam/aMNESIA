@@ -81,33 +81,35 @@ public class PlayerController : MonoBehaviour {
         }
         else if (collision.tag == "tutorial-1")
         {
+            Destroy(collision.gameObject);
             if (tutorialCanvas)
             {
                 tutorialCanvas.gameObject.SetActive(true);
                 btn.gameObject.SetActive(true);
-                Transform[] children;
-                children = tutorialCanvas.GetComponentsInChildren<Transform>();
-                foreach (Transform child in children)
-                {
-                    child.gameObject.SetActive(true);
-                }
+                tutorialCanvas.transform.GetChild(1).gameObject.SetActive(true);
             }
             //rig.velocity = Vector2.zero;
             //enabled = false;
         }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if  (collision.tag == "tutorial-1" )
+        else if (collision.tag == "tutorial-2")
         {
             Destroy(collision.gameObject);
-            /*tutorialCanvas.gameObject.SetActive(false);
-            Transform[] children = tutorialCanvas.GetComponentsInChildren<Transform>();
-            foreach (Transform child in children)
+            if (tutorialCanvas)
             {
-                child.gameObject.SetActive(false);
-            }*/
+                tutorialCanvas.gameObject.SetActive(true);
+                btn.gameObject.SetActive(true);
+                tutorialCanvas.transform.GetChild(2).gameObject.SetActive(true);
+            }
+        }
+        else if (collision.tag == "tutorial-3")
+        {
+            Destroy(collision.gameObject);
+            if (tutorialCanvas)
+            {
+                tutorialCanvas.gameObject.SetActive(true);
+                btn.gameObject.SetActive(true);
+                tutorialCanvas.transform.GetChild(3).gameObject.SetActive(true);
+            }
         }
     }
 }

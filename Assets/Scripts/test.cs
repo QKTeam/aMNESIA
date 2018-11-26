@@ -20,6 +20,9 @@ public class test : MonoBehaviour {
 	void Btn_Test()
     {
         canvas.gameObject.SetActive(false);
+        canvas.transform.GetChild(1).gameObject.SetActive(false);
+        canvas.transform.GetChild(2).gameObject.SetActive(false);
+        canvas.transform.GetChild(3).gameObject.SetActive(false);
         btn.gameObject.SetActive(false);
     }
 }
