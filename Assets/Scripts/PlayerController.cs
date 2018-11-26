@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
     public Button btn;
     private bool isAlive;
     private bool inAir;
+    private int pieceNum = 3;
     private bool jumpKeydown;
     private float horizontal;
     private Rigidbody2D rig;
@@ -42,6 +43,18 @@ public class PlayerController : MonoBehaviour {
             horizontal = Input.GetAxis("Horizontal");
             rig.velocity = new Vector2(horizontal * moveSpeed, rig.velocity.y);
         }
+        if (pieceNum == 0) {
+            rig.velocity = Vector3.zero;
+            rig.isKinematic = true;
+            if (deadCanvas)
+            {
+                Text wintext =
+                    deadCanvas.transform.GetChild(1).gameObject.GetComponent<Text>();
+                wintext.text = "You Win!";
+                deadCanvas.gameObject.SetActive(true);
+            }
+            enabled = false;
+        }
 	}
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -68,6 +81,7 @@ public class PlayerController : MonoBehaviour {
         if (collision.tag == "memory")
         {
             collision.gameObject.SetActive(false);
+            --pieceNum;
         }
         else if (collision.tag == "dead")
         {
@@ -78,6 +92,7 @@ public class PlayerController : MonoBehaviour {
             {
                 deadCanvas.gameObject.SetActive(true);
             }
+            enabled = false;
         }
         else if (collision.tag == "tutorial-1")
         {
