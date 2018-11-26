@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour {
 
     public float moveSpeed;
     public float jumpForce;
+    public Canvas deadCanvas;
+    private bool isAlive;
     private bool inAir;
     private bool jumpKeydown;
     private float horizontal;
@@ -16,23 +18,27 @@ public class PlayerController : MonoBehaviour {
         rig = GetComponent<Rigidbody2D>();
         jumpForce = 450f;
         moveSpeed = 4.0f;
+        isAlive = true;
         inAir = true;
         jumpKeydown = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetAxisRaw("Vertical") == 1)
+        if (isAlive)
         {
-            jumpKeydown = true;
-            if (!inAir)
+            if (Input.GetAxisRaw("Vertical") == 1)
             {
-                rig.AddForce(new Vector2(0, jumpForce));
-                inAir = true;
+                jumpKeydown = true;
+                if (!inAir)
+                {
+                    rig.AddForce(new Vector2(0, jumpForce));
+                    inAir = true;
+                }
             }
+            horizontal = Input.GetAxis("Horizontal");
+            rig.velocity = new Vector2(horizontal * moveSpeed, rig.velocity.y);
         }
-        horizontal = Input.GetAxis("Horizontal");
-        rig.velocity = new Vector2(horizontal * moveSpeed, rig.velocity.y);
 	}
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -57,7 +63,13 @@ public class PlayerController : MonoBehaviour {
         }
         else if (collision.tag == "dead")
         {
-            collision.gameObject.SetActive(false);
+            isAlive = false;
+            rig.velocity = Vector3.zero;
+            rig.isKinematic = true;
+            if (deadCanvas)
+            {
+                deadCanvas.gameObject.SetActive(true);
+            }
         }
     }
 }
