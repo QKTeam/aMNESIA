@@ -50,7 +50,8 @@ public class PlayerController : MonoBehaviour {
                     deadCanvas.transform.GetChild(1).gameObject.GetComponent<Text>();
                 wintext.text = "You Win!";
                 deadCanvas.gameObject.SetActive(true);
-            } 
+            }
+            enabled = false;
         }
 	}
 
@@ -84,6 +85,7 @@ public class PlayerController : MonoBehaviour {
             {
                 deadCanvas.gameObject.SetActive(true);
             }
+            enabled = false;
         }
     }
 }
