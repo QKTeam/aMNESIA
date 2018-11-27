@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
     private bool isAlive;
     private bool inAir;
     private int pieceNum = 3;
+    private int curTutorial = 0;
     private bool jumpKeydown;
     private float horizontal;
     private Rigidbody2D rig;
@@ -95,32 +96,34 @@ public class PlayerController : MonoBehaviour {
         }
         else if (collision.tag == "tutorial-1")
         {
+            curTutorial = 1;
+            rig.velocity = Vector2.zero;
+            rig.isKinematic = true;
+            enabled = false;
             Destroy(collision.gameObject);
             if (tutorialCanvas)
             {
                 tutorialCanvas.gameObject.SetActive(true);
                 tutorialCanvas.transform.GetChild(1).gameObject.SetActive(true);
             }
-            //rig.velocity = Vector2.zero;
-            //enabled = false;
         }
-        else if (collision.tag == "tutorial-2")
-        {
-            Destroy(collision.gameObject);
-            if (tutorialCanvas)
-            {
-                tutorialCanvas.gameObject.SetActive(true);
-                tutorialCanvas.transform.GetChild(2).gameObject.SetActive(true);
-            }
-        }
-        else if (collision.tag == "tutorial-3")
-        {
-            Destroy(collision.gameObject);
-            if (tutorialCanvas)
-            {
-                tutorialCanvas.gameObject.SetActive(true);
-                tutorialCanvas.transform.GetChild(3).gameObject.SetActive(true);
-            }
-        }
+        // else if (collision.tag == "tutorial-2")
+        // {
+        //     Destroy(collision.gameObject);
+        //     if (tutorialCanvas)
+        //     {
+        //         tutorialCanvas.gameObject.SetActive(true);
+        //         tutorialCanvas.transform.GetChild(2).gameObject.SetActive(true);
+        //     }
+        // }
+        // else if (collision.tag == "tutorial-3")
+        // {
+        //     Destroy(collision.gameObject);
+        //     if (tutorialCanvas)
+        //     {
+        //         tutorialCanvas.gameObject.SetActive(true);
+        //         tutorialCanvas.transform.GetChild(3).gameObject.SetActive(true);
+        //     }
+        // }
     }
 }
