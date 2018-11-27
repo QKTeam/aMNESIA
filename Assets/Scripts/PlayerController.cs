@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour {
     private bool isAlive;
     private bool inAir;
     private int pieceNum = 3;
-    private int curTutorial = 0;
+    private int curTutorial = 1;
     private bool jumpKeydown;
     private float horizontal;
     private int count = 0;
@@ -122,17 +122,6 @@ public class PlayerController : MonoBehaviour {
                 deadCanvas.gameObject.SetActive(true);
             }
             // enabled = false;
-        }
-        else if (collision.tag == "tutorial-0")
-        {
-            Destroy(collision.gameObject);
-            if (tutorialCanvas)
-            {
-                tutorialCanvas.gameObject.SetActive(true);
-                tutorialCanvas.transform.GetChild(1).gameObject.SetActive(true);
-            }
-            curTutorial = 1;
-            count = 0;
         }
         else if (collision.tag == "tutorial-1")
         {
