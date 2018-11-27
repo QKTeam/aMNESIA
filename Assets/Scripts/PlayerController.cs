@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
     private int curTutorial = 0;
     private bool jumpKeydown;
     private float horizontal;
+    private int count = 0;
     private Rigidbody2D rig;
 
 	// Use this for initialization
@@ -31,6 +32,13 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
         if (isAlive)
         {
+            if (curTutorial == 1) {
+                if (Input.GetKeyDown("f")) {
+                    curTutorial = 2;
+                    tutorialCanvas.transform.GetChild(1).gameObject.SetActive(false);
+                    tutorialCanvas.transform.GetChild(2).gameObject.SetActive(true);
+                }
+            }
             if (Input.GetAxisRaw("Vertical") == 1)
             {
                 jumpKeydown = true;
@@ -56,6 +64,18 @@ public class PlayerController : MonoBehaviour {
             enabled = false;
         }
 	}
+
+    private void FixedUpdate()
+    {
+        if (curTutorial == 2) ++count;
+        if (count > 200)
+        {
+            count = 0;
+            curTutorial = 3;
+            tutorialCanvas.gameObject.SetActive(false);
+            tutorialCanvas.transform.GetChild(2).gameObject.SetActive(false);
+        }
+    }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -97,9 +117,6 @@ public class PlayerController : MonoBehaviour {
         else if (collision.tag == "tutorial-1")
         {
             curTutorial = 1;
-            rig.velocity = Vector2.zero;
-            rig.isKinematic = true;
-            enabled = false;
             Destroy(collision.gameObject);
             if (tutorialCanvas)
             {
@@ -107,15 +124,6 @@ public class PlayerController : MonoBehaviour {
                 tutorialCanvas.transform.GetChild(1).gameObject.SetActive(true);
             }
         }
-        // else if (collision.tag == "tutorial-2")
-        // {
-        //     Destroy(collision.gameObject);
-        //     if (tutorialCanvas)
-        //     {
-        //         tutorialCanvas.gameObject.SetActive(true);
-        //         tutorialCanvas.transform.GetChild(2).gameObject.SetActive(true);
-        //     }
-        // }
         // else if (collision.tag == "tutorial-3")
         // {
         //     Destroy(collision.gameObject);
