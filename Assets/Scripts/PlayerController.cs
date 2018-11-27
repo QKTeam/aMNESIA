@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour {
     public float jumpForce;
     public Canvas deadCanvas;
     public Canvas tutorialCanvas;
-    public Button btn;
     private bool isAlive;
     private bool inAir;
     private int pieceNum = 3;
@@ -100,7 +99,6 @@ public class PlayerController : MonoBehaviour {
             if (tutorialCanvas)
             {
                 tutorialCanvas.gameObject.SetActive(true);
-                btn.gameObject.SetActive(true);
                 tutorialCanvas.transform.GetChild(1).gameObject.SetActive(true);
             }
             //rig.velocity = Vector2.zero;
@@ -112,7 +110,6 @@ public class PlayerController : MonoBehaviour {
             if (tutorialCanvas)
             {
                 tutorialCanvas.gameObject.SetActive(true);
-                btn.gameObject.SetActive(true);
                 tutorialCanvas.transform.GetChild(2).gameObject.SetActive(true);
             }
         }
@@ -122,7 +119,6 @@ public class PlayerController : MonoBehaviour {
             if (tutorialCanvas)
             {
                 tutorialCanvas.gameObject.SetActive(true);
-                btn.gameObject.SetActive(true);
                 tutorialCanvas.transform.GetChild(3).gameObject.SetActive(true);
             }
         }
