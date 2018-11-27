@@ -32,11 +32,11 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
         if (isAlive)
         {
-            if (curTutorial == 1) {
+            if (curTutorial == 2) {
                 if (Input.GetKeyDown("f")) {
-                    curTutorial = 2;
-                    tutorialCanvas.transform.GetChild(1).gameObject.SetActive(false);
-                    tutorialCanvas.transform.GetChild(2).gameObject.SetActive(true);
+                    tutorialCanvas.transform.GetChild(2).gameObject.SetActive(false);
+                    tutorialCanvas.transform.GetChild(3).gameObject.SetActive(true);
+                    curTutorial = 3;
                 }
             }
             if (Input.GetAxisRaw("Vertical") == 1)
@@ -67,13 +67,13 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if (curTutorial == 2) ++count;
+        if (curTutorial == 1 || curTutorial == 3) ++count;
         if (count > 200)
         {
-            count = 0;
-            curTutorial = 3;
             tutorialCanvas.gameObject.SetActive(false);
-            tutorialCanvas.transform.GetChild(2).gameObject.SetActive(false);
+            tutorialCanvas.transform.GetChild(curTutorial).gameObject.SetActive(false);
+            count = 0;
+            if (curTutorial == 3) ++curTutorial;
         }
     }
 
@@ -114,24 +114,27 @@ public class PlayerController : MonoBehaviour {
             }
             enabled = false;
         }
-        else if (collision.tag == "tutorial-1")
+        else if (collision.tag == "tutorial-0")
         {
-            curTutorial = 1;
             Destroy(collision.gameObject);
             if (tutorialCanvas)
             {
                 tutorialCanvas.gameObject.SetActive(true);
                 tutorialCanvas.transform.GetChild(1).gameObject.SetActive(true);
             }
+            curTutorial = 1;
+            count = 0;
         }
-        // else if (collision.tag == "tutorial-3")
-        // {
-        //     Destroy(collision.gameObject);
-        //     if (tutorialCanvas)
-        //     {
-        //         tutorialCanvas.gameObject.SetActive(true);
-        //         tutorialCanvas.transform.GetChild(3).gameObject.SetActive(true);
-        //     }
-        // }
+        else if (collision.tag == "tutorial-1")
+        {
+            Destroy(collision.gameObject);
+            if (tutorialCanvas)
+            {
+                tutorialCanvas.gameObject.SetActive(true);
+                tutorialCanvas.transform.GetChild(2).gameObject.SetActive(true);
+            }
+            curTutorial = 2;
+            count = 0;
+        }
     }
 }
