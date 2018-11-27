@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
         rig = GetComponent<Rigidbody2D>();
         jumpForce = 450f;
-        moveSpeed = 4.0f;
+        moveSpeed = 3.5f;
         isAlive = true;
         inAir = true;
         jumpKeydown = false;
