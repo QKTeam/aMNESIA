@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -51,6 +52,13 @@ public class PlayerController : MonoBehaviour {
             horizontal = Input.GetAxis("Horizontal");
             rig.velocity = new Vector2(horizontal * moveSpeed, rig.velocity.y);
         }
+        else
+        {
+            if (Input.anyKeyDown)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+        }
         if (pieceNum == 0) {
             rig.velocity = Vector3.zero;
             rig.isKinematic = true;
@@ -61,7 +69,8 @@ public class PlayerController : MonoBehaviour {
                 wintext.text = "You Win!";
                 deadCanvas.gameObject.SetActive(true);
             }
-            enabled = false;
+            isAlive = false;
+            // enabled = false;
         }
 	}
 
@@ -112,7 +121,7 @@ public class PlayerController : MonoBehaviour {
             {
                 deadCanvas.gameObject.SetActive(true);
             }
-            enabled = false;
+            // enabled = false;
         }
         else if (collision.tag == "tutorial-0")
         {
