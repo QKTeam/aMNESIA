@@ -131,6 +131,7 @@ public class PlayerController : MonoBehaviour {
             if (tutorialCanvas)
             {
                 tutorialCanvas.gameObject.SetActive(true);
+                tutorialCanvas.transform.GetChild(1).gameObject.SetActive(false);
                 tutorialCanvas.transform.GetChild(2).gameObject.SetActive(true);
             }
             curTutorial = 2;
