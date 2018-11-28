@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4105469824325338}
   - component: {fileID: 212110284513833640}
   - component: {fileID: 58466699064707090}
-  - component: {fileID: 114018265791292144}
   m_Layer: 0
   m_Name: Vesicle
   m_TagString: Vesicle
@@ -57,18 +56,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
---- !u!114 &114018265791292144
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1195151627410630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6bbe7a8aa59404081f4ac44b7f1136, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  main: {fileID: 0}
 --- !u!212 &212110284513833640
 SpriteRenderer:
   m_ObjectHideFlags: 1
