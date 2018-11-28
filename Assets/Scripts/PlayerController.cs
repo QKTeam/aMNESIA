@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 	[SerializeField] private float moveSpeed = 2.5f;
-	[SerializeField] private float jumpForce = 400f;
+	[SerializeField] private float jumpForce = 300f;
 	[Range(0, .3f)] [SerializeField] private float moveSmoothing = .05f;
 	[SerializeField] private LayerMask groundLayer;
 	[SerializeField] private Transform groundCheck;
 
-	const float checkRadius = .2f;
+	const float checkRadius = .01f;
 	private bool isGrounded;
 	private bool isAlive = true;
 	private float moveInput;
