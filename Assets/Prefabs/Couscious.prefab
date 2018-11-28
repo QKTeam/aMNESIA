@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 8195094280330666250}
   - component: {fileID: 3664157344302030210}
   - component: {fileID: 2113883506869226248}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Couscious
   m_TagString: Untagged
   m_Icon: {fileID: 0}
