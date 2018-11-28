@@ -3,12 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - memory
-  - dead
-  - tutorial-1
-  - tutorial-2
-  - tutorial-0
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -18,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Foreground
+  - Player
   - 
   - 
   - 
