@@ -123,7 +123,7 @@ MonoBehaviour:
   moveSmoothing: 0.05
   groundLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 256
   groundCheck: {fileID: 4213248668851176}
 --- !u!212 &212179470128459620
 SpriteRenderer:
