@@ -9,13 +9,14 @@ public class PlayerController : MonoBehaviour
 	[Range(0, .3f)] [SerializeField] private float moveSmoothing = .05f;
 	[SerializeField] private LayerMask groundLayer;
 	[SerializeField] private Transform groundCheck;
+	[SerializeField] private MainController main;
 
 	const float checkRadius = .01f;
 	private bool isGrounded;
-	private bool isAlive = true;
 	private bool jump = false;
 	private float horizonMove = 0f;
 	private Rigidbody2D rb2d;
+	private Vector3 deadPos;// Final position while player dead
 	private Vector3 n_velocity = Vector3.zero;
 
 	private void Awake()
@@ -29,6 +30,11 @@ public class PlayerController : MonoBehaviour
 		if (Input.GetButtonDown("Jump"))
 		{
 			jump = true;
+		}
+		if (main.isGameOver)
+		{
+			transform.position =
+				Vector3.Lerp(transform.position, deadPos, Time.deltaTime * 3f);
 		}
 	}
 
@@ -46,7 +52,7 @@ public class PlayerController : MonoBehaviour
 			}
 		}
 		// Handle move
-		if (isAlive)
+		if (!main.isGameOver)
 		{
 			Move();
 			jump = false;
@@ -64,5 +70,13 @@ public class PlayerController : MonoBehaviour
 			isGrounded = false;
 			rb2d.AddForce(Vector2.up * jumpForce);
 		}
+	}
+
+	private void OnTriggerEnter2D(Collider2D collider)
+	{
+		main.GameOver();
+		rb2d.velocity = Vector2.zero;
+		rb2d.isKinematic = true;
+		deadPos = collider.transform.position;
 	}
 }
