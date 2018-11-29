@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-	[SerializeField] private float moveSpeed = 130f;
-	[SerializeField] private float jumpForce = 270f;
+	[SerializeField] private float moveSpeed = 100f;
+	[SerializeField] private float jumpForce = 250f;
 	[Range(0, .3f)] [SerializeField] private float moveSmoothing = .05f;
 	[SerializeField] private LayerMask groundLayer;
 	[SerializeField] private Transform groundCheck;
 	[SerializeField] private MainController main;
 
-	const float checkRadius = .01f;
+	const float checkRadius = .1f;
 	private bool isGrounded;
 	private bool jump = false;
 	private float horizonMove = 0f;

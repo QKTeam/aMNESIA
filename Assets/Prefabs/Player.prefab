@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212179470128459620}
   - component: {fileID: 58015396957593406}
   - component: {fileID: 50139009465599442}
-  - component: {fileID: 114642583009550046}
+  - component: {fileID: 114183973082959704}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -65,7 +65,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1371990303845286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7, y: -3.67, z: 0}
+  m_LocalPosition: {x: -7.23, y: -4.17, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children:
   - {fileID: 4213248668851176}
@@ -107,7 +107,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.24999999
---- !u!114 &114642583009550046
+--- !u!114 &114183973082959704
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,12 +118,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c557e7a19d024644fa48de485a7baabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 130
-  jumpForce: 270
+  moveSpeed: 100
+  jumpForce: 250
   moveSmoothing: 0.05
   groundLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
   groundCheck: {fileID: 4213248668851176}
   main: {fileID: 0}
 --- !u!212 &212179470128459620
