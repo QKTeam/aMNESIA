@@ -74,9 +74,12 @@ public class PlayerController : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collider)
 	{
-		main.GameOver();
-		rb2d.velocity = Vector2.zero;
-		rb2d.isKinematic = true;
-		deadPos = collider.transform.position;
+		if (collider.tag == "Vesicle")
+		{
+			main.GameOver();
+			rb2d.velocity = Vector2.zero;
+			rb2d.isKinematic = true;
+			deadPos = collider.transform.position;
+		}
 	}
 }
