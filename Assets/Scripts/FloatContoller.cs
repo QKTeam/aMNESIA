@@ -6,7 +6,7 @@ public class FloatContoller : MonoBehaviour
 {
 	[SerializeField] private string direction = "vertical";
 	[SerializeField] private float isToMax = 1f;
-	[SerializeField] private float floatSpeed = .8f;
+	[SerializeField] private float floatSpeed = .6f;
 	[SerializeField] private float maxPos;
 	[SerializeField] private float minPos;
 
