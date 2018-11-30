@@ -120,6 +120,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 100
   jumpForce: 250
+  floatSpeed: 0.02
+  floatHeight: 0.2
   moveSmoothing: 0.05
   groundLayer:
     serializedVersion: 2
