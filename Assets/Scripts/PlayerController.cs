@@ -91,6 +91,7 @@ public class PlayerController : MonoBehaviour
 		if (!main.isGameOver)
 		{
 			Move();
+			jump = false;
 		}
 	}
 
@@ -115,16 +116,11 @@ public class PlayerController : MonoBehaviour
 		// Handle jump
 		if (jump)
 		{
-			if (isFloating)
-			{
-				StopFloating();
-				transform.position = groundPos;
-			}
-			if (isGrounded)
+			if (isGrounded || isFloating)
 			{
 				isGrounded = false;
+				StopFloating();
 				rb2d.AddForce(Vector2.up * jumpForce);
-				jump = false;
 			}
 		}
 	}
