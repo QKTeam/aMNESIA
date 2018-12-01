@@ -121,12 +121,13 @@ MonoBehaviour:
   moveSpeed: 100
   jumpForce: 250
   floatSpeed: 0.02
-  floatHeight: 0.2
+  floatHeight: 0.25
   moveSmoothing: 0.05
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
   groundCheck: {fileID: 4213248668851176}
+  floatCheck: {fileID: 0}
   main: {fileID: 0}
 --- !u!212 &212179470128459620
 SpriteRenderer:
