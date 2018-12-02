@@ -11,10 +11,14 @@ public class PlayerController : MonoBehaviour
 	[Range(0, .3f)] [SerializeField] private float moveSmoothing = .05f;
 	[SerializeField] private LayerMask groundLayer;
 	[SerializeField] private Transform groundCheck;
+    [SerializeField] private Transform topCheck;
+    [SerializeField] private Transform leftCheck;
+    [SerializeField] private Transform rightCheck;
 	[SerializeField] private Transform floatCheck;
 	[SerializeField] private MainController main;
 
 	const float checkRadius = .01f;
+
 	private bool isGrounded;
 	private bool isFloating;
 	private bool jump = false;
@@ -25,6 +29,45 @@ public class PlayerController : MonoBehaviour
 	private Vector3 groundPos;// Player's position when grounding
 	private Vector3 deadPos;// Final position while player dead
 	private Vector3 n_velocity = Vector3.zero;
+
+    public bool isTrapped()
+    {
+        bool lefttrapped = false;
+        bool righttrapped = false;
+        bool toptrapped = false;
+        Collider2D[] leftcolliders =
+            Physics2D.OverlapCircleAll(leftCheck.position, checkRadius, groundLayer);
+        Collider2D[] rightcolliders =
+            Physics2D.OverlapCircleAll(rightCheck.position, checkRadius, groundLayer);
+        Collider2D[] topcolliders =
+            Physics2D.OverlapCircleAll(topCheck.position, checkRadius, groundLayer);
+        for (int i = 0; i < leftcolliders.Length; i++)
+        {
+            if (leftcolliders[i].gameObject != gameObject)
+            {
+                lefttrapped = true;
+            }
+        }
+        for (int i = 0; i < rightcolliders.Length; i++)
+        {
+            if (rightcolliders[i].gameObject != gameObject)
+            {
+                righttrapped = true;
+            }
+        }
+        for (int i = 0; i < topcolliders.Length; i++)
+        {
+            if (topcolliders[i].gameObject != gameObject)
+            {
+                toptrapped = true;
+            }
+        }
+        if ((isGrounded && toptrapped) || (lefttrapped && righttrapped))
+        {
+            return true;
+        }
+        return false;
+    }
 
 	private void Awake()
 	{
@@ -73,8 +116,9 @@ public class PlayerController : MonoBehaviour
 				floatPos = groundCheck.position.y + floatHeight;
 			}
 		}
-		// Judge if float over ground
-		if (isFloating)
+        
+        // Judge if float over ground
+        if (isFloating)
 		{
 			StopFloating();
 			colliders =
