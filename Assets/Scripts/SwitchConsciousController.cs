@@ -39,6 +39,7 @@ public class SwitchConsciousController : MonoBehaviour {
             {
                 playerController.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 playerController.GetComponent<Rigidbody2D>().isKinematic = true;
+                playerController.GetComponent<Collider2D>().enabled = false;
                 StartCoroutine(FallBack());
             }
 		}
@@ -60,7 +61,6 @@ public class SwitchConsciousController : MonoBehaviour {
     IEnumerator FallBack()
     {
         yield return new WaitForSeconds(rate);
-        playerController.GetComponent<Rigidbody2D>().isKinematic = false;
         if (playerController.isTrapped())
         {
             anim.Play();
@@ -77,5 +77,7 @@ public class SwitchConsciousController : MonoBehaviour {
             }
             isSubShow = !isSubShow;
         }
+        playerController.GetComponent<Collider2D>().enabled = true;
+        playerController.GetComponent<Rigidbody2D>().isKinematic = false;
     }
 }

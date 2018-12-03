@@ -189,6 +189,11 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 58015396957593406, guid: 1cdca9d8be5fdb84582aab42d9298a04,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cdca9d8be5fdb84582aab42d9298a04, type: 2}
   m_IsPrefabAsset: 0
@@ -569,6 +574,7 @@ MonoBehaviour:
   subconsious: {fileID: 390281682}
   isSubShow: 0
   playerController: {fileID: 18697898}
+  CodeDown: 120
 --- !u!4 &698499075 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4559633998810018, guid: 27e7ebf0bb389c447b97c53aecd0636f,
