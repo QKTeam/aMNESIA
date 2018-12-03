@@ -7,9 +7,12 @@ public class SwitchConsciousController : MonoBehaviour {
 	[SerializeField] private GameObject subconsious;
 	[SerializeField] private bool isSubShow = false;
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private int CodeDown = 120;
 
     private float rate = 2 / 3f;
     private Animation anim;
+    private int count = 0;
+    private bool enable = true;
 
     private void Start()
     {
@@ -18,8 +21,9 @@ public class SwitchConsciousController : MonoBehaviour {
 
     private void Update()
 	{
-		if (Input.GetKeyDown("f"))
+		if (Input.GetKeyDown("f") && enable)
 		{
+            enable = false;
 			if (isSubShow)
 			{
 				conscious.SetActive(true);
@@ -33,14 +37,30 @@ public class SwitchConsciousController : MonoBehaviour {
 			isSubShow = !isSubShow;
             if (playerController.isTrapped())
             {
+                playerController.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                playerController.GetComponent<Rigidbody2D>().isKinematic = true;
                 StartCoroutine(FallBack());
             }
 		}
 	}
 
+    private void FixedUpdate()
+    {
+        if (count < CodeDown)
+        {
+            count++;
+        }
+        else
+        {
+            enable = true;
+            count = 0;
+        }
+    }
+
     IEnumerator FallBack()
     {
         yield return new WaitForSeconds(rate);
+        playerController.GetComponent<Rigidbody2D>().isKinematic = false;
         if (playerController.isTrapped())
         {
             anim.Play();
