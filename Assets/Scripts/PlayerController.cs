@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 	private bool isGrounded;
 	private bool isFloating;
 	private bool jump = false;
+	private bool inWindZone = false;
 	private float horizonMove = 0f;
 	private float gravity;
 	private float floatPos;
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
 	private Vector3 groundPos;// Player's position when grounding
 	private Vector3 deadPos;// Final position while player dead
 	private Vector3 n_velocity = Vector3.zero;
+	private GameObject windZone;
 
     public bool isTrapped()
     {
@@ -137,6 +139,12 @@ public class PlayerController : MonoBehaviour
 			Move();
 			jump = false;
 		}
+		// Handle wind force
+		if (inWindZone)
+		{
+			WindController wind = windZone.GetComponent<WindController>();
+			rb2d.AddForce(wind.direction * wind.strength);
+		}
 	}
 
 	private void Move()
@@ -199,6 +207,19 @@ public class PlayerController : MonoBehaviour
 			rb2d.velocity = Vector2.zero;
 			rb2d.isKinematic = true;
 			deadPos = collider.transform.position;
+		}
+		if (collider.tag == "WindZone")
+		{
+			inWindZone = true;
+			windZone = collider.gameObject;
+		}
+	}
+
+	private void OnTriggerExit2D(Collider2D collider)
+	{
+		if (collider.tag == "WindZone")
+		{
+			inWindZone = false;
 		}
 	}
 }
