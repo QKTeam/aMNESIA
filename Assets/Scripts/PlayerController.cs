@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private float jumpForce = 250f;
 	[SerializeField] private float floatSpeed = .02f;
 	[SerializeField] private float floatHeight = .25f;
+	[SerializeField] private float staticWaitTime = 120f;// While player no input
 	[Range(0, .3f)] [SerializeField] private float moveSmoothing = .05f;
 	[SerializeField] private LayerMask groundLayer;
 	[SerializeField] private Transform groundCheck;
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
 	private float horizonMove = 0f;
 	private float gravity;
 	private float floatPos;
+	private float waitTime = 0f;// While player no input
 	private Rigidbody2D rb2d;
 	private Vector3 groundPos;// Player's position when grounding
 	private Vector3 deadPos;// Final position while player dead
@@ -95,6 +97,20 @@ public class PlayerController : MonoBehaviour
 
 	private void FixedUpdate()
 	{
+		// Calculate wait
+		if (!jump && horizonMove == 0)
+		{
+			++waitTime;
+		}
+		else
+		{
+			waitTime = 0f;
+		}
+		// Judge player static
+		if (waitTime >= staticWaitTime)
+		{
+			StopFloating();
+		}
 		// Update floatCheck position
 		floatCheck.position = new Vector3(
 			groundCheck.position.x,
@@ -160,10 +176,6 @@ public class PlayerController : MonoBehaviour
 			{
 				KeepFloating();
 			}
-		}
-		else
-		{
-			StopFloating();
 		}
 		// Handle jump
 		if (jump)
