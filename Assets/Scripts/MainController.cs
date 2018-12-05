@@ -18,4 +18,13 @@ public class MainController : MonoBehaviour
 		isGameOver = true;
 		// TODO: Game over UI
 	}
+
+	private void FixedUpdate()
+	{
+		if (memoryPieceNum == 0)
+		{
+			Debug.Log("open the door");
+			--memoryPieceNum;
+		}
+	}
 }
