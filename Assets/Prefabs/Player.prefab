@@ -28,6 +28,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1323453412273508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4967832347081508}
+  m_Layer: 9
+  m_Name: RightCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1371990303845286
 GameObject:
   m_ObjectHideFlags: 0
@@ -37,9 +52,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4756231352776314}
   - component: {fileID: 212179470128459620}
-  - component: {fileID: 58015396957593406}
   - component: {fileID: 50139009465599442}
   - component: {fileID: 114183973082959704}
+  - component: {fileID: 58961467788164036}
+  - component: {fileID: 111240480351455592}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -62,6 +78,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1623825325608488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4452566848747656}
+  m_Layer: 9
+  m_Name: TopCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1751085119754152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4461628283234570}
+  m_Layer: 9
+  m_Name: LeftCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4213248668851176
 Transform:
   m_ObjectHideFlags: 1
@@ -74,6 +120,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4756231352776314}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4452566848747656
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1623825325608488}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4756231352776314}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4461628283234570
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1751085119754152}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.25, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4756231352776314}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4692015797679210
 Transform:
@@ -95,13 +167,29 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1371990303845286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.18, y: -3.59, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalPosition: {x: -4.12, y: -1.95, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 4213248668851176}
   - {fileID: 4692015797679210}
+  - {fileID: 4452566848747656}
+  - {fileID: 4461628283234570}
+  - {fileID: 4967832347081508}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4967832347081508
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1323453412273508}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.25, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4756231352776314}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50139009465599442
 Rigidbody2D:
@@ -117,13 +205,13 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1.3
+  m_GravityScale: 1.5
   m_Material: {fileID: 6200000, guid: 8a4d58db5491958459e635d9894ceec4, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &58015396957593406
+--- !u!58 &58961467788164036
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,13 +219,28 @@ CircleCollider2D:
   m_GameObject: {fileID: 1371990303845286}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 8a4d58db5491958459e635d9894ceec4, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.24999999
+  m_Radius: 0.25
+--- !u!111 &111240480351455592
+Animation:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1371990303845286}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 84a6ca168f6790d4fb5a280321f9582f, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 84a6ca168f6790d4fb5a280321f9582f, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114183973082959704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,18 +252,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c557e7a19d024644fa48de485a7baabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 100
-  jumpForce: 250
+  moveSpeed: 150
+  jumpForce: 340
   floatSpeed: 0.02
-  floatHeight: 0.25
+  floatHeight: 0.3
+  staticWaitTime: 120
   moveSmoothing: 0.05
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
   groundCheck: {fileID: 4213248668851176}
-  topCheck: {fileID: 0}
-  leftCheck: {fileID: 0}
-  rightCheck: {fileID: 0}
+  topCheck: {fileID: 4452566848747656}
+  leftCheck: {fileID: 4461628283234570}
+  rightCheck: {fileID: 4967832347081508}
   floatCheck: {fileID: 0}
   main: {fileID: 0}
 --- !u!198 &198384499037785286
@@ -1046,25 +1150,25 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 0.56
+      scalar: 0.9866861
       minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
-          inSlope: -0.38806152
-          outSlope: -0.38806152
+          value: 0.7749996
+          inSlope: -0.26305962
+          outSlope: -0.26305962
           tangentMode: 34
           weightedMode: 0
           inWeight: 0
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0.6119385
-          inSlope: -0.38806152
-          outSlope: -0.38806152
+          value: 0.51194
+          inSlope: -0.26305962
+          outSlope: -0.26305962
           tangentMode: 34
           weightedMode: 0
           inWeight: 0.33333334
