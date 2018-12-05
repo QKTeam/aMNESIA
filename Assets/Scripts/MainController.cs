@@ -7,6 +7,7 @@ public class MainController : MonoBehaviour
 	public bool isGameOver = false;
 
 	[SerializeField] private int memoryPieceNum = 3;
+	[SerializeField] private DoorController doorController;
 
 	public void playerGetPiece()
 	{
@@ -23,7 +24,7 @@ public class MainController : MonoBehaviour
 	{
 		if (memoryPieceNum == 0)
 		{
-			Debug.Log("open the door");
+			doorController.OpenDoor();
 			--memoryPieceNum;
 		}
 	}
