@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private float jumpForce = 250f;
 	[SerializeField] private float floatSpeed = .02f;
 	[SerializeField] private float floatHeight = .25f;
+	[SerializeField] private float staticWaitTime = 120f;// While player no input
 	[Range(0, .3f)] [SerializeField] private float moveSmoothing = .05f;
 	[SerializeField] private LayerMask groundLayer;
 	[SerializeField] private Transform groundCheck;
@@ -22,13 +23,16 @@ public class PlayerController : MonoBehaviour
 	private bool isGrounded;
 	private bool isFloating;
 	private bool jump = false;
+	private bool inWindZone = false;
 	private float horizonMove = 0f;
 	private float gravity;
 	private float floatPos;
+	private float waitTime = 0f;// While player no input
 	private Rigidbody2D rb2d;
 	private Vector3 groundPos;// Player's position when grounding
 	private Vector3 deadPos;// Final position while player dead
 	private Vector3 n_velocity = Vector3.zero;
+	private GameObject windZone;
 
     public bool isTrapped()
     {
@@ -93,6 +97,20 @@ public class PlayerController : MonoBehaviour
 
 	private void FixedUpdate()
 	{
+		// Calculate wait
+		if (!jump && horizonMove == 0)
+		{
+			++waitTime;
+		}
+		else
+		{
+			waitTime = 0f;
+		}
+		// Judge player static
+		if (waitTime >= staticWaitTime)
+		{
+			StopFloating();
+		}
 		// Update floatCheck position
 		floatCheck.position = new Vector3(
 			groundCheck.position.x,
@@ -137,6 +155,12 @@ public class PlayerController : MonoBehaviour
 			Move();
 			jump = false;
 		}
+		// Handle wind force
+		if (inWindZone)
+		{
+			WindController wind = windZone.GetComponent<WindController>();
+			rb2d.AddForce(wind.direction * wind.strength);
+		}
 	}
 
 	private void Move()
@@ -152,10 +176,6 @@ public class PlayerController : MonoBehaviour
 			{
 				KeepFloating();
 			}
-		}
-		else
-		{
-			StopFloating();
 		}
 		// Handle jump
 		if (jump)
@@ -199,6 +219,19 @@ public class PlayerController : MonoBehaviour
 			rb2d.velocity = Vector2.zero;
 			rb2d.isKinematic = true;
 			deadPos = collider.transform.position;
+		}
+		if (collider.tag == "WindZone")
+		{
+			inWindZone = true;
+			windZone = collider.gameObject;
+		}
+	}
+
+	private void OnTriggerExit2D(Collider2D collider)
+	{
+		if (collider.tag == "WindZone")
+		{
+			inWindZone = false;
 		}
 	}
 }
