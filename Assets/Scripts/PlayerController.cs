@@ -30,7 +30,8 @@ public class PlayerController : MonoBehaviour
 	private float waitTime = 0f;// While player no input
 	private Rigidbody2D rb2d;
 	private Vector3 groundPos;// Player's position when grounding
-	private Vector3 deadPos;// Final position while player dead
+	private Vector3 finalPos;// Final position while player dead
+	private Vector3 finalScale;
 	private Vector3 n_velocity = Vector3.zero;
 	private GameObject windZone;
 
@@ -91,7 +92,14 @@ public class PlayerController : MonoBehaviour
 		if (main.isGameOver)
 		{
 			transform.position =
-				Vector3.Lerp(transform.position, deadPos, Time.deltaTime * 3f);
+				Vector3.Lerp(transform.position, finalPos, Time.deltaTime * 3f);
+		}
+		if (main.isVictory)
+		{
+			transform.position =
+				Vector3.Lerp(transform.position, finalPos, Time.deltaTime * 3f);
+			transform.localScale =
+				Vector3.Lerp(transform.localScale, finalScale, Time.deltaTime);
 		}
 	}
 
@@ -216,14 +224,22 @@ public class PlayerController : MonoBehaviour
 		if (collider.tag == "Vesicle")
 		{
 			main.GameOver();
-			rb2d.velocity = Vector2.zero;
-			rb2d.isKinematic = true;
-			deadPos = collider.transform.position;
 		}
 		if (collider.tag == "WindZone")
 		{
 			inWindZone = true;
 			windZone = collider.gameObject;
+		}
+		if (collider.tag == "Door")
+		{
+			if (main.GetAllPiece())
+			{
+				main.Victory();
+				rb2d.velocity = Vector2.zero;
+				rb2d.isKinematic = true;
+				finalPos = collider.transform.position;
+				finalScale = new Vector3(0, 0, 0);
+			}
 		}
 	}
 

@@ -217,6 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGameOver: 0
   memoryPieceNum: 1
+  victoryWaitTime: 50
   doorController: {fileID: 949622628}
 --- !u!114 &64099475
 MonoBehaviour:
@@ -10627,9 +10628,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1346044797}
   - component: {fileID: 1346044798}
+  - component: {fileID: 1346044799}
   m_Layer: 0
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10694,6 +10696,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &1346044799
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1346044796}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.06757003}
+  m_Size: {x: 0.8771458, y: 0.97952425}
+  m_Direction: 0
 --- !u!1001 &1414494016
 Prefab:
   m_ObjectHideFlags: 0
