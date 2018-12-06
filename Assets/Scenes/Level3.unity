@@ -10355,6 +10355,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1401862515978018, guid: 5ea24aec0c08da1489fd61ebe0028b8e, type: 2}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ea24aec0c08da1489fd61ebe0028b8e, type: 2}
   m_IsPrefabAsset: 0
@@ -10376,7 +10380,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4725858582065282, guid: bccf00ad5f8b6dd4f92d701327d979f2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.88
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 4725858582065282, guid: bccf00ad5f8b6dd4f92d701327d979f2, type: 2}
       propertyPath: m_LocalPosition.z
