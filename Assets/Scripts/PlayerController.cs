@@ -156,18 +156,20 @@ public class PlayerController : MonoBehaviour
 					KeepFloating();
 				}
 			}
-		}
-		// Handle move
-		if (!main.isGameOver)
+        }
+        // Handle wind force
+        if (inWindZone)
+        {
+            jump = false;
+            WindController wind = windZone.GetComponent<WindController>();
+            rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+            rb2d.AddForce(wind.direction * wind.strength);
+        }
+        // Handle move
+        if (!main.isGameOver)
 		{
 			Move();
 			jump = false;
-		}
-		// Handle wind force
-		if (inWindZone)
-		{
-			WindController wind = windZone.GetComponent<WindController>();
-			rb2d.AddForce(wind.direction * wind.strength);
 		}
 	}
 
@@ -229,6 +231,7 @@ public class PlayerController : MonoBehaviour
 		{
 			inWindZone = true;
 			windZone = collider.gameObject;
+            StopFloating();
 		}
 		if (collider.tag == "Door")
 		{
