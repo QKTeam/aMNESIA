@@ -218,7 +218,7 @@ MonoBehaviour:
   isGameOver: 0
   isVictory: 0
   memoryPieceNum: 1
-  victoryWaitTime: 50
+  victoryWaitTime: 200
   doorController: {fileID: 949622628}
 --- !u!114 &64099475
 MonoBehaviour:
