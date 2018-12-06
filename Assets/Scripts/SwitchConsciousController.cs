@@ -5,9 +5,10 @@ using UnityEngine;
 public class SwitchConsciousController : MonoBehaviour {
 	[SerializeField] private GameObject conscious;
 	[SerializeField] private GameObject subconsious;
-	[SerializeField] private bool isSubShow = false;
     [SerializeField] private PlayerController playerController;
     [SerializeField] private int CodeDown = 120;
+	[SerializeField] private bool isSubShow = false;
+    [SerializeField] private bool switchAvailable = true;
 
     private float rate = 2 / 3f;
     private Animation anim;
@@ -21,28 +22,31 @@ public class SwitchConsciousController : MonoBehaviour {
 
     private void Update()
 	{
-		if (Input.GetKeyDown("f") && enable)
-		{
-            enable = false;
-			if (isSubShow)
-			{
-				conscious.SetActive(true);
-				subconsious.SetActive(false);
-			}
-			else
-			{
-				subconsious.SetActive(true);
-				conscious.SetActive(false);
-			}
-			isSubShow = !isSubShow;
-            if (playerController.isTrapped())
+        if (switchAvailable)
+        {
+            if (Input.GetKeyDown("f") && enable)
             {
-                playerController.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                playerController.GetComponent<Rigidbody2D>().isKinematic = true;
-                playerController.GetComponent<Collider2D>().enabled = false;
-                StartCoroutine(FallBack());
+                enable = false;
+                if (isSubShow)
+                {
+                    conscious.SetActive(true);
+                    subconsious.SetActive(false);
+                }
+                else
+                {
+                    subconsious.SetActive(true);
+                    conscious.SetActive(false);
+                }
+                isSubShow = !isSubShow;
+                if (playerController.isTrapped())
+                {
+                    playerController.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                    playerController.GetComponent<Rigidbody2D>().isKinematic = true;
+                    playerController.GetComponent<Collider2D>().enabled = false;
+                    StartCoroutine(FallBack());
+                }
             }
-		}
+        }
 	}
 
     private void FixedUpdate()
