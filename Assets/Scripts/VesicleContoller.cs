@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FloatContoller : MonoBehaviour
+public class VesicleContoller : MonoBehaviour
 {
 	[SerializeField] private string direction = "vertical";
 	[SerializeField] private float isToMax = 1f;

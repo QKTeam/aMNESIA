@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4105469824325338}
   - component: {fileID: 212110284513833640}
+  - component: {fileID: 114349853857189142}
   - component: {fileID: 58466699064707090}
   m_Layer: 0
   m_Name: Vesicle
@@ -34,9 +35,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1195151627410630}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.15, y: -3.69, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.75, y: -3.25, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -55,7 +56,23 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 1.2799999
+--- !u!114 &114349853857189142
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1195151627410630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eabf815cb932481458e598ca37fc9b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: horizontal
+  isToMax: 1
+  floatSpeed: 1
+  maxPos: 3.75
+  minPos: -0.75
 --- !u!212 &212110284513833640
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -90,13 +107,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 8
-  m_Sprite: {fileID: 21300000, guid: b3512a7da0eb4da44952c4fa6504c69e, type: 3}
-  m_Color: {r: 0.0027144956, g: 0.5754717, b: 0.17452046, a: 1}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 11cc6c28399274b4abd835f3e8a54ae8, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
