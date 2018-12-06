@@ -113,18 +113,19 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &1133243460
+--- !u!1 &1930144181
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1133243465}
-  - component: {fileID: 1133243464}
-  - component: {fileID: 1133243463}
-  - component: {fileID: 1133243462}
-  - component: {fileID: 1133243461}
+  - component: {fileID: 1930144187}
+  - component: {fileID: 1930144186}
+  - component: {fileID: 1930144185}
+  - component: {fileID: 1930144184}
+  - component: {fileID: 1930144183}
+  - component: {fileID: 1930144182}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -132,12 +133,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1133243461
+--- !u!114 &1930144182
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1133243460}
+  m_GameObject: {fileID: 1930144181}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e2a3b21d6f38914dab8bcba121dbd03, type: 3}
@@ -146,32 +147,49 @@ MonoBehaviour:
   isGameOver: 0
   isVictory: 0
   memoryPieceNum: 1
-  victoryWaitTime: 50
+  victoryWaitTime: 200
   doorController: {fileID: 0}
---- !u!114 &1133243462
+--- !u!114 &1930144183
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1133243460}
+  m_GameObject: {fileID: 1930144181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30bc93407133596499a0c1ed56252512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conscious: {fileID: 0}
+  subconsious: {fileID: 0}
+  playerController: {fileID: 0}
+  CodeDown: 120
+  isSubShow: 0
+  switchAvailable: 0
+--- !u!114 &1930144184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1930144181}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50fb9f0bb9f56e844ac3ab2c056fb31c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!81 &1133243463
+--- !u!81 &1930144185
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1133243460}
+  m_GameObject: {fileID: 1930144181}
   m_Enabled: 1
---- !u!20 &1133243464
+--- !u!20 &1930144186
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1133243460}
+  m_GameObject: {fileID: 1930144181}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -206,12 +224,12 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!4 &1133243465
+--- !u!4 &1930144187
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1133243460}
+  m_GameObject: {fileID: 1930144181}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
