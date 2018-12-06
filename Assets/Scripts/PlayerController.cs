@@ -91,11 +91,13 @@ public class PlayerController : MonoBehaviour
 		}
 		if (main.isGameOver)
 		{
+			StopAllMove();
 			transform.position =
 				Vector3.Lerp(transform.position, finalPos, Time.deltaTime * 3f);
 		}
 		if (main.isVictory)
 		{
+			StopAllMove();
 			transform.position =
 				Vector3.Lerp(transform.position, finalPos, Time.deltaTime * 3f);
 			transform.localScale =
@@ -171,6 +173,12 @@ public class PlayerController : MonoBehaviour
 			Move();
 			jump = false;
 		}
+	}
+
+	private void StopAllMove()
+	{
+		horizonMove = 0;
+		jump = false;
 	}
 
 	private void Move()

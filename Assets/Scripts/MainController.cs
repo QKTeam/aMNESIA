@@ -40,6 +40,14 @@ public class MainController : MonoBehaviour
 		countTime = 0f;
 	}
 
+	private void Update()
+	{
+		if (Input.GetKeyDown("r"))
+		{
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		}
+	}
+
 	private void FixedUpdate()
 	{
 		if (isVictory)
