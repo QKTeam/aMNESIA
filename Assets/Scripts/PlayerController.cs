@@ -103,6 +103,9 @@ public class PlayerController : MonoBehaviour
 			transform.localScale =
 				Vector3.Lerp(transform.localScale, finalScale, Time.deltaTime);
 		}
+		if (main.isPause) {
+			StopAllMove();
+		}
 	}
 
 	private void FixedUpdate()
