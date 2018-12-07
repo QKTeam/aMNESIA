@@ -19,6 +19,7 @@ public class MainController : MonoBehaviour
 	private void Awake()
 	{
 		currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+		GlobalController.gameRunning = true;
 	}
 
 	private void Start() {
