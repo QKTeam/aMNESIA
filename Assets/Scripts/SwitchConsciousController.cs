@@ -8,7 +8,6 @@ public class SwitchConsciousController : MonoBehaviour {
     [SerializeField] private PlayerController playerController;
     [SerializeField] private int CodeDown = 120;
 	[SerializeField] private bool isSubShow = false;
-    [SerializeField] private bool switchAvailable = true;
 
     private float rate = 2 / 3f;
     private Animation anim;
@@ -22,7 +21,7 @@ public class SwitchConsciousController : MonoBehaviour {
 
     private void Update()
 	{
-        if (switchAvailable)
+        if (GlobalController.gameRunning)
         {
             if (Input.GetKeyDown("f") && enable)
             {
