@@ -86,35 +86,54 @@ public class PlayerController : MonoBehaviour
 
 	private void Update()
 	{
-		horizonMove = Input.GetAxisRaw("Horizontal") * moveSpeed * Time.fixedDeltaTime;
-		if (Input.GetButtonDown("Jump"))
+		if (GlobalController.gameRunning)
 		{
-			jump = true;
-		}
-		if (main.isGameOver)
-		{
-			StopAllMove();
-			transform.position =
-				Vector3.Lerp(transform.position, finalPos, Time.deltaTime * 3f);
-		}
-		if (main.isVictory)
-		{
-			StopAllMove();
-			transform.position =
-				Vector3.Lerp(transform.position, finalPos, Time.deltaTime * 3f);
-			transform.localScale =
-				Vector3.Lerp(transform.localScale, finalScale, Time.deltaTime);
-		}
-		if (main.isPause) {
-			StopAllMove();
-			if (!rigibodyLocked)
+			horizonMove = Input.GetAxisRaw("Horizontal") * moveSpeed * Time.fixedDeltaTime;
+			if (Input.GetButtonDown("Jump"))
 			{
-				CancelRigibody();
+				jump = true;
+			}
+			if (rigibodyLocked)
+			{
+				ResumeRigibody();
 			}
 		}
-		else if (rigibodyLocked && !main.isVictory)
+		else
 		{
-			ResumeRigibody();
+			horizonMove = 0;
+			jump = false;
+			if (main.gameStopStatus == "GameOver")
+			{
+				transform.position = Vector3.Lerp(
+					transform.position,
+					finalPos,
+					Time.deltaTime * 3f
+				);
+				transform.localScale = Vector3.Lerp(
+					transform.localScale,
+					finalScale,
+					Time.deltaTime
+				);
+			}
+			else if (main.gameStopStatus == "Victory")
+			{
+				transform.position = Vector3.Lerp(
+					transform.position,
+					finalPos,
+					Time.deltaTime * 3f
+				);
+				transform.localScale = Vector3.Lerp(
+					transform.localScale,
+					finalScale,
+					Time.deltaTime
+				);
+			}
+			else if (main.gameStopStatus == "Pause") {
+				if (!rigibodyLocked)
+				{
+					CancelRigibody();
+				}
+			}
 		}
 	}
 
@@ -181,16 +200,7 @@ public class PlayerController : MonoBehaviour
             rb2d.AddForce(wind.direction * wind.strength);
         }
         // Handle move
-        if (!main.isGameOver)
-		{
-			Move();
-			jump = false;
-		}
-	}
-
-	private void StopAllMove()
-	{
-		horizonMove = 0;
+		Move();
 		jump = false;
 	}
 
@@ -262,6 +272,9 @@ public class PlayerController : MonoBehaviour
 		if (collider.tag == "Vesicle")
 		{
 			main.GameOver();
+			CancelRigibody();
+			finalPos = collider.transform.position;
+			finalScale = new Vector3(0, 0, 0);
 		}
 		if (collider.tag == "WindZone")
 		{
@@ -277,6 +290,9 @@ public class PlayerController : MonoBehaviour
 				CancelRigibody();
 				finalPos = collider.transform.position;
 				finalScale = new Vector3(0, 0, 0);
+			}
+			else {
+				Debug.Log("Can't go");
 			}
 		}
 	}

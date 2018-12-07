@@ -5,12 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainController : MonoBehaviour
 {
-	public bool isGameOver = false;
-	public bool isVictory = false;
-	public bool isPause = false;
+	public string gameStopStatus = "";// The reason of game stop
 
 	[SerializeField] private int memoryPieceNum = 3;
 	[SerializeField] private float victoryWaitTime = 100f;
+	[SerializeField] private float restartWaitTime = 100f;
 	[SerializeField] private DoorController doorController;
 	[SerializeField] private GameObject GameMenu;
 
@@ -21,6 +20,7 @@ public class MainController : MonoBehaviour
 	private void Awake()
 	{
 		currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+		GlobalController.gameRunning = true;
 	}
 
 	private void Start() {
@@ -30,16 +30,13 @@ public class MainController : MonoBehaviour
 	public void playerGetPiece()
 	{
 		--memoryPieceNum;
-		if (GetAllPiece())
-		{
-			doorController.OpenDoor();
-		}
 	}
 
 	public void GameOver()
 	{
-		isGameOver = true;
-		// TODO: Game over UI
+		GlobalController.gameRunning = false;
+		gameStopStatus = "GameOver";
+		countTime = 0f;
 	}
 
 	public bool GetAllPiece()
@@ -49,7 +46,9 @@ public class MainController : MonoBehaviour
 
 	public void Victory()
 	{
-		isVictory = true;
+		GlobalController.gameRunning = false;
+		gameStopStatus = "Victory";
+		doorController.OpenDoor();
 		countTime = 0f;
 		GlobalController.currentLevel = currentSceneIndex + 1 + levelOffset;
 		GlobalController.SaveFile();
@@ -57,38 +56,50 @@ public class MainController : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown("r"))
+		if (GlobalController.gameRunning)
 		{
-			SceneManager.LoadScene(currentSceneIndex);
-		}
-		if (GameMenu.activeInHierarchy == false)
-		{
-			if (Input.GetKeyDown(KeyCode.Escape))
+			if (Input.GetKeyDown("r"))
 			{
-				GameMenu.SetActive(true);
-				isPause = true;
+				SceneManager.LoadScene(currentSceneIndex);
+			}
+			if (!GameMenu.activeInHierarchy)
+			{
+				if (Input.GetKeyDown(KeyCode.Escape))
+				{
+					GameMenu.SetActive(true);
+					GlobalController.gameRunning = false;
+					gameStopStatus = "Pause";
+				}
 			}
 		}
-		else
-		{
+		else if (GameMenu.activeInHierarchy) {
 			if (Input.GetKeyDown(KeyCode.Escape))
 			{
 				GameMenu.SetActive(false);
-				isPause = false;
-			}			
+				GlobalController.gameRunning = true;
+			}	
 		}
 	}
 
 	private void FixedUpdate()
 	{
-		if (isVictory)
+		if (gameStopStatus == "Victory")
 		{
 			++countTime;
+			if (countTime == victoryWaitTime)
+			{
+				enabled = false;
+				SceneManager.LoadScene(currentSceneIndex + 1);
+			}
 		}
-		if (countTime == victoryWaitTime)
+		if (gameStopStatus == "GameOver")
 		{
-			enabled = false;
-			SceneManager.LoadScene(currentSceneIndex + 1);
+			++countTime;
+			if (countTime == restartWaitTime)
+			{
+				enabled = false;
+				SceneManager.LoadScene(currentSceneIndex);
+			}
 		}
 	}
 }
