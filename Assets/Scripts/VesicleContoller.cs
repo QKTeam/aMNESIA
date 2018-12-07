@@ -12,35 +12,38 @@ public class VesicleContoller : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		if (direction == "vertical")
+		if (GlobalController.gameRunning)
 		{
-			float diffY = floatSpeed * isToMax * Time.fixedDeltaTime;
-			if (transform.position.y + diffY > maxPos)
+			if (direction == "vertical")
 			{
-				diffY = maxPos - transform.position.y;
-				isToMax = -1f;
+				float diffY = floatSpeed * isToMax * Time.fixedDeltaTime;
+				if (transform.position.y + diffY > maxPos)
+				{
+					diffY = maxPos - transform.position.y;
+					isToMax = -1f;
+				}
+				else if (transform.position.y + diffY < minPos)
+				{
+					diffY = minPos - transform.position.y;
+					isToMax = 1f;
+				}
+				transform.position += Vector3.up * diffY;
 			}
-			else if (transform.position.y + diffY < minPos)
+			else if (direction == "horizontal")
 			{
-				diffY = minPos - transform.position.y;
-				isToMax = 1f;
+				float diffX = floatSpeed * isToMax * Time.fixedDeltaTime;
+				if (transform.position.x + diffX > maxPos)
+				{
+					diffX = maxPos - transform.position.x;
+					isToMax = -1f;
+				}
+				else if (transform.position.x + diffX < minPos)
+				{
+					diffX = minPos - transform.position.x;
+					isToMax = 1f;
+				}
+				transform.position += Vector3.right * diffX;
 			}
-			transform.position += Vector3.up * diffY;
-		}
-		else if (direction == "horizontal")
-		{
-			float diffX = floatSpeed * isToMax * Time.fixedDeltaTime;
-			if (transform.position.x + diffX > maxPos)
-			{
-				diffX = maxPos - transform.position.x;
-				isToMax = -1f;
-			}
-			else if (transform.position.x + diffX < minPos)
-			{
-				diffX = minPos - transform.position.x;
-				isToMax = 1f;
-			}
-			transform.position += Vector3.right * diffX;
 		}
 	}
 
