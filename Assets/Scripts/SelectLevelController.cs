@@ -26,4 +26,8 @@ public class SelectLevelController : MonoBehaviour
 	{
 		SceneManager.LoadScene("Level" + levelNum);
 	}
+
+	public void ReturnMenu() {
+		SceneManager.LoadScene("Menu");
+	}
 }
