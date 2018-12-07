@@ -165,11 +165,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4105469824325338, guid: 49a473134d60a8e44ae3c8038f9ab1c3,
     type: 2}
   m_PrefabInternal: {fileID: 1624847384}
---- !u!1 &326044291 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1030615917751636, guid: 6ef2af30a4b997d4eb6466e3f1dc535e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1241638493}
 --- !u!1001 &497115574
 Prefab:
   m_ObjectHideFlags: 0
@@ -382,7 +377,7 @@ MonoBehaviour:
   memoryPieceNum: 3
   victoryWaitTime: 50
   doorController: {fileID: 749910017}
-  GameMenu: {fileID: 326044291}
+  GameMenu: {fileID: 1241638494}
 --- !u!114 &739998958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,7 +464,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &749910017 stripped
 MonoBehaviour:
@@ -517,7 +512,7 @@ Transform:
   - {fileID: 1987261557}
   - {fileID: 1025548787}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &935380445
 GameObject:
@@ -7485,11 +7480,26 @@ Prefab:
       objectReference: {fileID: 739998961}
     - target: {fileID: 1030615917751636, guid: 6ef2af30a4b997d4eb6466e3f1dc535e, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 223363926332151554, guid: 6ef2af30a4b997d4eb6466e3f1dc535e,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 739998961}
+    - target: {fileID: 223645818259268720, guid: 6ef2af30a4b997d4eb6466e3f1dc535e,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 739998961}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ef2af30a4b997d4eb6466e3f1dc535e, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1241638494 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1153581480575206, guid: 6ef2af30a4b997d4eb6466e3f1dc535e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1241638493}
 --- !u!1 &1260637100
 GameObject:
   m_ObjectHideFlags: 0
@@ -7643,7 +7653,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1986221413 stripped
 Transform:
