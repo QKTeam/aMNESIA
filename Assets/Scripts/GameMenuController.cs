@@ -17,4 +17,9 @@ public class GameMenuController : MonoBehaviour
         GameMenu.SetActive(false);
         SceneManager.LoadScene("Menu");
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
