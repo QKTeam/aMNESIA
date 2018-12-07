@@ -13,6 +13,13 @@ public class MainController : MonoBehaviour
 	[SerializeField] private DoorController doorController;
 
 	private float countTime = 0f;
+	private int currentSceneIndex;
+	private int levelOffset = -1;
+
+	private void Awake()
+	{
+		currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+	}
 
 	public void playerGetPiece()
 	{
@@ -38,13 +45,15 @@ public class MainController : MonoBehaviour
 	{
 		isVictory = true;
 		countTime = 0f;
+		GlobalController.currentLevel = currentSceneIndex + 1 + levelOffset;
+		GlobalController.SaveFile();
 	}
 
 	private void Update()
 	{
 		if (Input.GetKeyDown("r"))
 		{
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+			SceneManager.LoadScene(currentSceneIndex);
 		}
 	}
 
@@ -57,12 +66,7 @@ public class MainController : MonoBehaviour
 		if (countTime == victoryWaitTime)
 		{
 			enabled = false;
-			LoadNextScene();
+			SceneManager.LoadScene(currentSceneIndex + 1);
 		}
-	}
-
-	private void LoadNextScene()
-	{
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 	}
 }
