@@ -215,9 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e2a3b21d6f38914dab8bcba121dbd03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGameOver: 0
-  isVictory: 0
-  isPause: 0
+  gameStopStatus: 
   memoryPieceNum: 1
   victoryWaitTime: 200
   doorController: {fileID: 949622628}
@@ -235,11 +233,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conscious: {fileID: 390660468}
   subconsious: {fileID: 1134247930}
+  KeyF: {fileID: 1362006433}
   playerController: {fileID: 1414494020}
-  KeyF: {fileID: 1362006431}
   CodeDown: 120
   isSubShow: 0
-  switchAvailable: 1
 --- !u!1 &151854706
 GameObject:
   m_ObjectHideFlags: 0
@@ -11021,10 +11018,10 @@ RectTransform:
   m_Father: {fileID: 2123032320}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -350, y: 205}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -350.5, y: 5}
+  m_SizeDelta: {x: -801, y: -430}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1362006433
 MonoBehaviour:

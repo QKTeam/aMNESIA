@@ -1,18 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SwitchConsciousController : MonoBehaviour {
 	[SerializeField] private GameObject conscious;
 	[SerializeField] private GameObject subconsious;
+    [SerializeField] private Button KeyF;
     [SerializeField] private PlayerController playerController;
     [SerializeField] private int CodeDown = 120;
 	[SerializeField] private bool isSubShow = false;
 
-    private float rate = 2 / 3f;
+    private int rate = 40;
     private Animation anim;
     private int count = 0;
-    private bool enable = true;
+    private bool isKeyFEnabled = true;
+    private int count1 = 0;
+    private bool cantest = false;
 
     private void Start()
     {
@@ -23,27 +27,36 @@ public class SwitchConsciousController : MonoBehaviour {
 	{
         if (GlobalController.gameRunning)
         {
-            if (Input.GetKeyDown("f") && enable)
+            if (isKeyFEnabled) 
             {
-                enable = false;
-                if (isSubShow)
+                KeyF.interactable = true;
+                if (Input.GetKeyDown("f"))
                 {
-                    conscious.SetActive(true);
-                    subconsious.SetActive(false);
+                    KeyF.interactable = false;
+                    isKeyFEnabled = false;
+                    if (isSubShow)
+                    {
+                        conscious.SetActive(true);
+                        subconsious.SetActive(false);
+                    }
+                    else
+                    {
+                        subconsious.SetActive(true);
+                        conscious.SetActive(false);
+                    }
+                    isSubShow = !isSubShow;
+                    if (playerController.isTrapped())
+                    {
+                        playerController.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                        playerController.GetComponent<Rigidbody2D>().isKinematic = true;
+                        playerController.GetComponent<Collider2D>().enabled = false;
+                        FallBack();
+                    }
                 }
-                else
-                {
-                    subconsious.SetActive(true);
-                    conscious.SetActive(false);
-                }
-                isSubShow = !isSubShow;
-                if (playerController.isTrapped())
-                {
-                    playerController.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                    playerController.GetComponent<Rigidbody2D>().isKinematic = true;
-                    playerController.GetComponent<Collider2D>().enabled = false;
-                    StartCoroutine(FallBack());
-                }
+            }
+            else
+            {
+                KeyF.interactable = false;
             }
         }
 	}
@@ -56,31 +69,38 @@ public class SwitchConsciousController : MonoBehaviour {
         }
         else
         {
-            enable = true;
+            isKeyFEnabled = true;
             count = 0;
+        }
+        if (cantest)
+        {
+            count1++;
         }
     }
 
-    IEnumerator FallBack()
+    private void FallBack()
     {
-        yield return new WaitForSeconds(rate);
-        if (playerController.isTrapped())
+        cantest = true;
+        if (playerController.isTrapped() && count1 >= 40)
         {
             anim.Play();
-            yield return new WaitForSeconds(rate);
-            if (isSubShow)
-            {
-                conscious.SetActive(true);
-                subconsious.SetActive(false);
+            if (count1 >= 80) {
+                if (isSubShow)
+                {
+                    conscious.SetActive(true);
+                    subconsious.SetActive(false);
+                }
+                else
+                {
+                    subconsious.SetActive(true);
+                    conscious.SetActive(false);
+                }
+                isSubShow = !isSubShow;
             }
-            else
-            {
-                subconsious.SetActive(true);
-                conscious.SetActive(false);
-            }
-            isSubShow = !isSubShow;
         }
         playerController.GetComponent<Collider2D>().enabled = true;
         playerController.GetComponent<Rigidbody2D>().isKinematic = false;
+        count1 = 0;
+        cantest = false;
     }
 }
