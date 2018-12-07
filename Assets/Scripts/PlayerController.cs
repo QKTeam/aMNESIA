@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
 	private bool isFloating;
 	private bool jump = false;
 	private bool inWindZone = false;
+	private bool rigibodyLocked = false;
 	private float horizonMove = 0f;
 	private float gravity;
 	private float floatPos;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
 	private Vector3 finalPos;// Final position while player dead
 	private Vector3 finalScale;
 	private Vector3 n_velocity = Vector3.zero;
+	private Vector2 pauseVelocity = Vector2.zero;
 	private GameObject windZone;
 
     public bool isTrapped()
@@ -105,6 +107,14 @@ public class PlayerController : MonoBehaviour
 		}
 		if (main.isPause) {
 			StopAllMove();
+			if (!rigibodyLocked)
+			{
+				CancelRigibody();
+			}
+		}
+		else if (rigibodyLocked)
+		{
+			ResumeRigibody();
 		}
 	}
 
@@ -184,6 +194,21 @@ public class PlayerController : MonoBehaviour
 		jump = false;
 	}
 
+	private void CancelRigibody()
+	{
+		pauseVelocity = rb2d.velocity;
+		rb2d.velocity = Vector2.zero;
+		rb2d.isKinematic = true;
+		rigibodyLocked = true;
+	}
+
+	private void ResumeRigibody()
+	{
+		rb2d.velocity = pauseVelocity;
+		rb2d.isKinematic = false;
+		rigibodyLocked = false;
+	}
+
 	private void Move()
 	{
 		Vector3 targetVelocity = new Vector2(horizonMove, rb2d.velocity.y);
@@ -249,8 +274,7 @@ public class PlayerController : MonoBehaviour
 			if (main.GetAllPiece())
 			{
 				main.Victory();
-				rb2d.velocity = Vector2.zero;
-				rb2d.isKinematic = true;
+				CancelRigibody();
 				finalPos = collider.transform.position;
 				finalScale = new Vector3(0, 0, 0);
 			}
