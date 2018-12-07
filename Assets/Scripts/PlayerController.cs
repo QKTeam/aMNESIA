@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
 				CancelRigibody();
 			}
 		}
-		else if (rigibodyLocked)
+		else if (rigibodyLocked && !main.isVictory)
 		{
 			ResumeRigibody();
 		}
