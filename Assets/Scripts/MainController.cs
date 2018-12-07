@@ -30,10 +30,6 @@ public class MainController : MonoBehaviour
 	public void playerGetPiece()
 	{
 		--memoryPieceNum;
-		if (GetAllPiece())
-		{
-			doorController.OpenDoor();
-		}
 	}
 
 	public void GameOver()
@@ -50,6 +46,7 @@ public class MainController : MonoBehaviour
 	public void Victory()
 	{
 		isVictory = true;
+		doorController.OpenDoor();
 		countTime = 0f;
 		GlobalController.currentLevel = currentSceneIndex + 1 + levelOffset;
 		GlobalController.SaveFile();

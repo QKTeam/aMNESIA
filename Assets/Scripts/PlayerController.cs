@@ -283,6 +283,9 @@ public class PlayerController : MonoBehaviour
 				finalPos = collider.transform.position;
 				finalScale = new Vector3(0, 0, 0);
 			}
+			else {
+				Debug.Log("Can't go");
+			}
 		}
 	}
 
