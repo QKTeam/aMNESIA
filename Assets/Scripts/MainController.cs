@@ -9,7 +9,7 @@ public class MainController : MonoBehaviour
 	public bool isVictory = false;
 
 	[SerializeField] private int memoryPieceNum = 3;
-	[SerializeField] private float victoryWaitTime = 200f;
+	[SerializeField] private float victoryWaitTime = 100f;
 	[SerializeField] private DoorController doorController;
 
 	private float countTime = 0f;
