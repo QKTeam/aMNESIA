@@ -1,4 +1,4 @@
 ﻿public class GlobalVariable
 {
-	public static int currentLevel = 1;
+	public static int currentLevel = 0;
 }

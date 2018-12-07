@@ -12,6 +12,14 @@ public class MenuController : MonoBehaviour
 		LoadFile();
 	}
 
+	public void NewGame()
+	{
+		GlobalVariable.currentLevel = 0;
+		SaveFile();
+		// TODO: Load CG Scene
+		SceneManager.LoadScene("Level1");
+	}
+
 	public void LoadLevelSelector() 
 	{
 		SceneManager.LoadScene(1);
