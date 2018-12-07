@@ -96,6 +96,8 @@ public class PlayerController : MonoBehaviour
 			StopAllMove();
 			transform.position =
 				Vector3.Lerp(transform.position, finalPos, Time.deltaTime * 3f);
+			transform.localScale =
+				Vector3.Lerp(transform.localScale, finalScale, Time.deltaTime);
 		}
 		if (main.isVictory)
 		{
@@ -112,7 +114,7 @@ public class PlayerController : MonoBehaviour
 				CancelRigibody();
 			}
 		}
-		else if (rigibodyLocked && !main.isVictory)
+		else if (rigibodyLocked && !main.isVictory && !main.isGameOver)
 		{
 			ResumeRigibody();
 		}
@@ -262,6 +264,9 @@ public class PlayerController : MonoBehaviour
 		if (collider.tag == "Vesicle")
 		{
 			main.GameOver();
+			CancelRigibody();
+			finalPos = collider.transform.position;
+			finalScale = new Vector3(0, 0, 0);
 		}
 		if (collider.tag == "WindZone")
 		{

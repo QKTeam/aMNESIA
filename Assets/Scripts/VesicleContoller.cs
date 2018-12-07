@@ -43,4 +43,12 @@ public class VesicleContoller : MonoBehaviour
 			transform.position += Vector3.right * diffX;
 		}
 	}
+
+	private void OnTriggerEnter2D(Collider2D collider)
+	{
+		if (collider.tag == "Player")
+		{
+			enabled = false;
+		}
+	}
 }
