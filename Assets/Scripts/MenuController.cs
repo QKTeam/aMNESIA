@@ -3,20 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 
 public class MenuController : MonoBehaviour 
 {
-	public GameObject MenuButton;
+	[SerializeField] private Button new_btn; 
+	[SerializeField] private Button continue_btn;
+	[SerializeField] private Button quit_btn;
 
 	private void Start()
 	{
 		GlobalController.LoadFile();
 		if (GlobalController.currentLevel == 0) 
 		{
-			MenuButton.SetActive(false);
+			continue_btn.gameObject.SetActive(false);
 		}
+		// Add event listener
+		new_btn.onClick.AddListener(NewGame);
+		continue_btn.onClick.AddListener(LoadLevelSelector);
+		quit_btn.onClick.AddListener(QuitGame);
 	}
 
 	public void NewGame()
