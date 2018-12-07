@@ -54,26 +54,28 @@ public class MainController : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown("r"))
+		if (GlobalController.gameRunning)
 		{
-			SceneManager.LoadScene(currentSceneIndex);
-		}
-		if (GameMenu.activeInHierarchy == false)
-		{
-			if (Input.GetKeyDown(KeyCode.Escape))
+			if (Input.GetKeyDown("r"))
 			{
-				GameMenu.SetActive(true);
-				GlobalController.gameRunning = false;
-				gameStopStatus = "Pause";
+				SceneManager.LoadScene(currentSceneIndex);
+			}
+			if (!GameMenu.activeInHierarchy)
+			{
+				if (Input.GetKeyDown(KeyCode.Escape))
+				{
+					GameMenu.SetActive(true);
+					GlobalController.gameRunning = false;
+					gameStopStatus = "Pause";
+				}
 			}
 		}
-		else
-		{
+		else if (GameMenu.activeInHierarchy) {
 			if (Input.GetKeyDown(KeyCode.Escape))
 			{
 				GameMenu.SetActive(false);
 				GlobalController.gameRunning = true;
-			}			
+			}	
 		}
 	}
 
