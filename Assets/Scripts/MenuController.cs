@@ -9,13 +9,13 @@ public class MenuController : MonoBehaviour
 {
 	private void Start()
 	{
-		LoadFile();
+		GlobalController.LoadFile();
 	}
 
 	public void NewGame()
 	{
-		GlobalVariable.currentLevel = 0;
-		SaveFile();
+		GlobalController.currentLevel = 0;
+		GlobalController.SaveFile();
 		// TODO: Load CG Scene
 		SceneManager.LoadScene("Level1");
 	}
@@ -27,42 +27,7 @@ public class MenuController : MonoBehaviour
 
 	public void QuitGame()
 	{
-		SaveFile();
+		GlobalController.SaveFile();
 		Application.Quit();
-	}
-	
-	public void SaveFile()
-	{
-		string destination = Application.persistentDataPath + "/save.dat";
-		FileStream file;
-
-		if(File.Exists(destination)) file = File.OpenWrite(destination);
-		else file = File.Create(destination);
-
-		GameData data = new GameData(GlobalVariable.currentLevel);
-		BinaryFormatter bf = new BinaryFormatter();
-		bf.Serialize(file, data);
-		file.Close();
-	}
-
-	public void LoadFile()
-	{
-		string destination = Application.persistentDataPath + "/save.dat";
-		FileStream file;
-
-		if (File.Exists(destination)) file = File.OpenRead(destination);
-		else
-		{
-			Debug.LogError("File not found");
-			return;
-		}
-
-		BinaryFormatter bf = new BinaryFormatter();
-		GameData data = (GameData) bf.Deserialize(file);
-		file.Close();
-
-		GlobalVariable.currentLevel = data.level;
-
-		Debug.Log(data.level);
 	}
 }
