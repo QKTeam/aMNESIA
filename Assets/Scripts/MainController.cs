@@ -9,6 +9,7 @@ public class MainController : MonoBehaviour
 
 	[SerializeField] private int memoryPieceNum = 3;
 	[SerializeField] private float victoryWaitTime = 100f;
+	[SerializeField] private float restartWaitTime = 100f;
 	[SerializeField] private DoorController doorController;
 	[SerializeField] private GameObject GameMenu;
 
@@ -35,7 +36,7 @@ public class MainController : MonoBehaviour
 	{
 		GlobalController.gameRunning = false;
 		gameStopStatus = "GameOver";
-		// TODO: Game over UI
+		countTime = 0f;
 	}
 
 	public bool GetAllPiece()
@@ -85,11 +86,20 @@ public class MainController : MonoBehaviour
 		if (gameStopStatus == "Victory")
 		{
 			++countTime;
+			if (countTime == victoryWaitTime)
+			{
+				enabled = false;
+				SceneManager.LoadScene(currentSceneIndex + 1);
+			}
 		}
-		if (countTime == victoryWaitTime)
+		if (gameStopStatus == "GameOver")
 		{
-			enabled = false;
-			SceneManager.LoadScene(currentSceneIndex + 1);
+			++countTime;
+			if (countTime == restartWaitTime)
+			{
+				enabled = false;
+				SceneManager.LoadScene(currentSceneIndex);
+			}
 		}
 	}
 }
