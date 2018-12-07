@@ -22,7 +22,7 @@ public class MenuController : MonoBehaviour
 
 	public void LoadLevelSelector() 
 	{
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene("LevelSelector");
 	}
 
 	public void QuitGame()

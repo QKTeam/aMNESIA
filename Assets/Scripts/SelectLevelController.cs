@@ -7,6 +7,6 @@ public class SelectLevelController : MonoBehaviour
 {
 	public void LoadLevel(int num) 
 	{
-		SceneManager.LoadScene(num + 1);
+		SceneManager.LoadScene("Level" + num);
 	}
 }
