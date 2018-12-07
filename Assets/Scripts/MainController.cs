@@ -5,9 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainController : MonoBehaviour
 {
-	public bool isGameOver = false;
-	public bool isVictory = false;
-	public bool isPause = false;
+	public string gameStopStatus = "";// The reason of game stop
 
 	[SerializeField] private int memoryPieceNum = 3;
 	[SerializeField] private float victoryWaitTime = 100f;
@@ -34,7 +32,8 @@ public class MainController : MonoBehaviour
 
 	public void GameOver()
 	{
-		isGameOver = true;
+		GlobalController.gameRunning = false;
+		gameStopStatus = "GameOver";
 		// TODO: Game over UI
 	}
 
@@ -45,7 +44,8 @@ public class MainController : MonoBehaviour
 
 	public void Victory()
 	{
-		isVictory = true;
+		GlobalController.gameRunning = false;
+		gameStopStatus = "Victory";
 		doorController.OpenDoor();
 		countTime = 0f;
 		GlobalController.currentLevel = currentSceneIndex + 1 + levelOffset;
@@ -63,7 +63,8 @@ public class MainController : MonoBehaviour
 			if (Input.GetKeyDown(KeyCode.Escape))
 			{
 				GameMenu.SetActive(true);
-				isPause = true;
+				GlobalController.gameRunning = false;
+				gameStopStatus = "Pause";
 			}
 		}
 		else
@@ -71,14 +72,14 @@ public class MainController : MonoBehaviour
 			if (Input.GetKeyDown(KeyCode.Escape))
 			{
 				GameMenu.SetActive(false);
-				isPause = false;
+				GlobalController.gameRunning = true;
 			}			
 		}
 	}
 
 	private void FixedUpdate()
 	{
-		if (isVictory)
+		if (gameStopStatus == "Victory")
 		{
 			++countTime;
 		}

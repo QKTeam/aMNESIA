@@ -5,6 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class GlobalController
 {
 	public static int currentLevel = 0;
+	public static bool gameRunning = true;
 
 	public static void SaveFile()
 	{
