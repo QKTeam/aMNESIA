@@ -81,10 +81,10 @@ public class SwitchConsciousController : MonoBehaviour {
     private void FallBack()
     {
         cantest = true;
-        if (playerController.isTrapped() && count1 >= 40)
+        if (playerController.isTrapped() && count1 >= rate)
         {
             anim.Play();
-            if (count1 >= 80) {
+            if (count1 >= 2 * rate) {
                 if (isSubShow)
                 {
                     conscious.SetActive(true);
