@@ -4127,9 +4127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conscious: {fileID: 11562140}
   subconsious: {fileID: 0}
-  KeyF: {fileID: 0}
   playerController: {fileID: 2055166709}
-  CodeDown: 120
+  ColdDown: 120
   isSubShow: 0
 --- !u!114 &227037575
 MonoBehaviour:
@@ -5079,7 +5078,7 @@ Prefab:
     - target: {fileID: 224825718949752254, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 60
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 114091895808356258, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
@@ -5093,7 +5092,7 @@ Prefab:
     - target: {fileID: 224936920273515110, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 60
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 114721673751264570, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
@@ -5104,6 +5103,11 @@ Prefab:
     - {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 6174288c624d7ed46bb2697b6693fed3, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1889135850 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1803740239159540, guid: 6174288c624d7ed46bb2697b6693fed3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1889135849}
 --- !u!1 &1925003863 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1995113614404458, guid: 6174288c624d7ed46bb2697b6693fed3,
@@ -5123,6 +5127,7 @@ MonoBehaviour:
   subtitle:
   - {fileID: 1543638690}
   - {fileID: 1418677437}
+  panel: {fileID: 1889135850}
   startText:
   - content: "\u524D\u9762\u6709\u6247\u95E8 \u8FC7\u53BB\u770B\u770B"
     isForever: 0
