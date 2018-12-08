@@ -7,7 +7,7 @@ public class SwitchConsciousController : MonoBehaviour {
 	[SerializeField] private GameObject conscious;
 	[SerializeField] private GameObject subconsious;
     [SerializeField] private PlayerController playerController;
-    [SerializeField] private int ColdDown = 120;
+    [SerializeField] private int ColdDown = 80;
 	[SerializeField] private bool isSubShow = false;
 
     private int rate = 40;

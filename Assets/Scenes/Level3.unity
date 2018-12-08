@@ -362,7 +362,7 @@ MonoBehaviour:
   conscious: {fileID: 912757661}
   subconsious: {fileID: 753650560}
   playerController: {fileID: 750783774}
-  ColdDown: 120
+  ColdDown: 80
   isSubShow: 0
 --- !u!114 &415496539
 MonoBehaviour:
