@@ -5124,7 +5124,7 @@ MonoBehaviour:
   - {fileID: 1543638690}
   - {fileID: 1418677437}
   startText:
-  - content: "\u524D\u9762\u597D\u50CF\u6709\u6247\u95E8\uFF0C\u6211\u8981\u5148\u6536\u96C6\u8BB0\u5FC6\u788E\u7247"
+  - content: "\u524D\u9762\u6709\u6247\u95E8 \u8FC7\u53BB\u770B\u770B"
     isForever: 0
     shown: 0
     delay: 2.5
@@ -5132,7 +5132,7 @@ MonoBehaviour:
     type: 0
     bindObject: {fileID: 0}
   bindText:
-  - content: "\uFF08\u8BB0\u5FC6\u8FFD\u8E2A\u5206\u5B50\uFF0C\u4E00\u4E2A\u610F\u8BC6\u4F53\uFF0C\u5B83\u5C31\u662F\u4F60\uFF0C\u4F60\u5C31\u662F\u5B83\uFF09"
+  - content: "\uFF08\u8BB0\u5FC6\u8FFD\u8E2A\u8005\uFF0C\u901A\u8FC7\u6536\u96C6\u8BB0\u5FC6\u788E\u7247\u6765\u627E\u56DE\u8BB0\u5FC6\uFF09"
     isForever: 1
     shown: 0
     delay: 2.5

@@ -277,11 +277,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bccf00ad5f8b6dd4f92d701327d979f2, type: 2}
   m_IsPrefabAsset: 0
---- !u!4 &286436652 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4725858582065282, guid: bccf00ad5f8b6dd4f92d701327d979f2,
-    type: 2}
-  m_PrefabInternal: {fileID: 1915258715}
 --- !u!4 &310216997 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4725858582065282, guid: bccf00ad5f8b6dd4f92d701327d979f2,
@@ -367,7 +362,6 @@ Transform:
   - {fileID: 1187141180}
   - {fileID: 502007302}
   - {fileID: 551938293}
-  - {fileID: 286436652}
   - {fileID: 448636284}
   m_Father: {fileID: 1334118016}
   m_RootOrder: 0
@@ -15750,7 +15744,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4725858582065282, guid: bccf00ad5f8b6dd4f92d701327d979f2, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1326251717926094, guid: bccf00ad5f8b6dd4f92d701327d979f2, type: 2}
       propertyPath: m_Name
@@ -15895,7 +15889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStopStatus: 
-  memoryPieceNum: 5
+  memoryPieceNum: 4
   victoryWaitTime: 50
   restartWaitTime: 100
   doorController: {fileID: 368760194}
@@ -16324,57 +16318,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4105469824325338, guid: 49a473134d60a8e44ae3c8038f9ab1c3,
     type: 2}
   m_PrefabInternal: {fileID: 1231067037}
---- !u!1001 &1915258715
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 563289708}
-    m_Modifications:
-    - target: {fileID: 4725858582065282, guid: bccf00ad5f8b6dd4f92d701327d979f2, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4725858582065282, guid: bccf00ad5f8b6dd4f92d701327d979f2, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4725858582065282, guid: bccf00ad5f8b6dd4f92d701327d979f2, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4725858582065282, guid: bccf00ad5f8b6dd4f92d701327d979f2, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4725858582065282, guid: bccf00ad5f8b6dd4f92d701327d979f2, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4725858582065282, guid: bccf00ad5f8b6dd4f92d701327d979f2, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4725858582065282, guid: bccf00ad5f8b6dd4f92d701327d979f2, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4725858582065282, guid: bccf00ad5f8b6dd4f92d701327d979f2, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1326251717926094, guid: bccf00ad5f8b6dd4f92d701327d979f2, type: 2}
-      propertyPath: m_Name
-      value: Book (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 114720449015241002, guid: bccf00ad5f8b6dd4f92d701327d979f2,
-        type: 2}
-      propertyPath: main
-      value: 
-      objectReference: {fileID: 1350199723}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: bccf00ad5f8b6dd4f92d701327d979f2, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1001 &2059135378
 Prefab:
   m_ObjectHideFlags: 0
