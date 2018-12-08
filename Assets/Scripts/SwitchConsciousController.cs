@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class SwitchConsciousController : MonoBehaviour {
 	[SerializeField] private GameObject conscious;
 	[SerializeField] private GameObject subconsious;
-    [SerializeField] private Button KeyF;
     [SerializeField] private PlayerController playerController;
-    [SerializeField] private int CodeDown = 120;
+    [SerializeField] private int ColdDown = 120;
 	[SerializeField] private bool isSubShow = false;
 
     private int rate = 40;
     private Animation anim;
     private int count = 0;
     private bool isKeyFEnabled = true;
+    private bool isKeyFDown = false;
     private int count1 = 0;
     private bool cantest = false;
 
@@ -27,61 +27,63 @@ public class SwitchConsciousController : MonoBehaviour {
 	{
         if (GlobalController.gameRunning)
         {
-            if (isKeyFEnabled && KeyF) 
+            if (Input.GetKeyDown("f"))
             {
-                KeyF.interactable = true;
-                if (Input.GetKeyDown("f") && isKeyFEnabled)
-                {
-                    KeyF.interactable = false;
-                    isKeyFEnabled = false;
-                    if (isSubShow)
-                    {
-                        conscious.SetActive(true);
-                        subconsious.SetActive(false);
-                    }
-                    else
-                    {
-                        subconsious.SetActive(true);
-                        conscious.SetActive(false);
-                    }
-                    isSubShow = !isSubShow;
-                    if (playerController.isTrapped())
-                    {
-                        playerController.StopFloating();
-                        playerController.CancelRigibody();
-                        playerController.GetComponent<CircleCollider2D>().isTrigger = true;
-                        playerController.playerTrapped = true;
-                        count1 = 0;
-                        cantest = true;
-                    }
-                }
-            }
-            else
-            {
-                if (KeyF)
-                {
-                    KeyF.interactable = false;
-                }
+                isKeyFDown = true;
             }
         }
 	}
 
     private void FixedUpdate()
     {
-        if (count < CodeDown)
-        {
-            count++;
-        }
-        else
+        if (count == ColdDown)
         {
             isKeyFEnabled = true;
             count = 0;
         }
+        if (isKeyFEnabled) 
+        {
+            playerController.lightMode();
+            if (isKeyFDown)
+            {
+                playerController.darkMode();
+                isKeyFEnabled = false;
+                if (isSubShow)
+                {
+                    conscious.SetActive(true);
+                    subconsious.SetActive(false);
+                }
+                else
+                {
+                    subconsious.SetActive(true);
+                    conscious.SetActive(false);
+                }
+                isSubShow = !isSubShow;
+                if (playerController.isTrapped())
+                {
+                    playerController.StopFloating();
+                    playerController.CancelRigibody();
+                    playerController.GetComponent<CircleCollider2D>().isTrigger = true;
+                    playerController.playerTrapped = true;
+                    playerController.enabled = false;
+                    count1 = 0;
+                    cantest = true;
+                }
+            }
+            isKeyFDown = false;
+        }
+        else
+        {
+            if (count < ColdDown)
+            {
+                ++count;
+            }
+        }
         if (cantest)
         {
-            count1++;
+            ++count1;
+            FallBack();
         }
-        FallBack();
     }
 
     private void FallBack()
@@ -102,6 +104,9 @@ public class SwitchConsciousController : MonoBehaviour {
                 }
                 isSubShow = !isSubShow;
                 cantest = false;
+                playerController.GetComponent<CircleCollider2D>().isTrigger = false;
+                playerController.playerTrapped = false;
+                playerController.enabled = true;
             }
         }
     }
