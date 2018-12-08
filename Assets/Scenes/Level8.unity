@@ -120,16 +120,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
-        type: 2}
-      propertyPath: bindText.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224537804006545686, guid: 6174288c624d7ed46bb2697b6693fed3,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 224537804006545686, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -227,54 +217,9 @@ Prefab:
       objectReference: {fileID: 631111089}
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
-      propertyPath: main
-      value: 
-      objectReference: {fileID: 631111085}
-    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
-        type: 2}
-      propertyPath: bindText.Array.data[0].content
-      value: "\uFF08\u4E0E\u7236\u6BCD\u5750\u4E0B\u957F\u8C08\uFF0C\u611F\u89C9\u5FC3\u60C5\u8212\u7545\u591A\u4E86\uFF09"
-      objectReference: {fileID: 0}
-    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
-        type: 2}
-      propertyPath: bindText.Array.data[0].delay
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
-        type: 2}
-      propertyPath: bindText.Array.data[0].nextIndex
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
-        type: 2}
-      propertyPath: bindText.Array.data[0].type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
-        type: 2}
       propertyPath: bindText.Array.data[0].bindObject
       value: 
       objectReference: {fileID: 1340730409}
-    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
-        type: 2}
-      propertyPath: bindText.Array.data[1].content
-      value: "\uFF08\u5973\u670B\u53CB\u8FD8\u662F\u79BB\u5F00\u4E86\uFF0C\u4F46\u662F\u5F7C\u6B64\u90FD\u6210\u719F\u4E86\u4E0D\u5C11\uFF09"
-      objectReference: {fileID: 0}
-    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
-        type: 2}
-      propertyPath: bindText.Array.data[1].delay
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
-        type: 2}
-      propertyPath: bindText.Array.data[1].nextIndex
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
-        type: 2}
-      propertyPath: bindText.Array.data[1].type
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
       propertyPath: bindText.Array.data[1].bindObject
@@ -282,54 +227,19 @@ Prefab:
       objectReference: {fileID: 1731718245}
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
-      propertyPath: bindText.Array.data[2].content
-      value: "\uFF08\u671F\u672B\u8003\u8BD5\u53D1\u6325\u5F97\u90FD\u8FD8\u4E0D\u9519\uFF0C\u4E5F\u7B97\u653E\u5FC3\u4E86\uFF09"
-      objectReference: {fileID: 0}
-    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
-        type: 2}
-      propertyPath: bindText.Array.data[2].delay
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
-        type: 2}
-      propertyPath: bindText.Array.data[2].nextIndex
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
-        type: 2}
-      propertyPath: bindText.Array.data[2].type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
-        type: 2}
       propertyPath: bindText.Array.data[2].bindObject
       value: 
       objectReference: {fileID: 1029819073}
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
-      propertyPath: bindText.Array.data[3].content
-      value: "\uFF08\u7F8E\u8D5B\u867D\u7136\u6CA1\u83B7\u5956\uFF0C\u4F46\u662F\u8FD8\u662F\u4ECE\u4E2D\u6536\u83B7\u4E86\u4E0D\u5C11\uFF09"
-      objectReference: {fileID: 0}
-    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
-        type: 2}
-      propertyPath: bindText.Array.data[3].delay
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
-        type: 2}
-      propertyPath: bindText.Array.data[3].nextIndex
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
-        type: 2}
-      propertyPath: bindText.Array.data[3].type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
-        type: 2}
       propertyPath: bindText.Array.data[3].bindObject
       value: 
       objectReference: {fileID: 1463315611}
+    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
+        type: 2}
+      propertyPath: main
+      value: 
+      objectReference: {fileID: 631111085}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6174288c624d7ed46bb2697b6693fed3, type: 2}
   m_IsPrefabAsset: 0
