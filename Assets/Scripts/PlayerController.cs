@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-	[SerializeField] private float moveSpeed = 100f;
+    public bool playerTrapped = false;
+
+    [SerializeField] private float moveSpeed = 100f;
 	[SerializeField] private float jumpForce = 250f;
 	[SerializeField] private float floatSpeed = .02f;
 	[SerializeField] private float floatHeight = .25f;
@@ -41,7 +43,44 @@ public class PlayerController : MonoBehaviour
 	private GameObject windZone;
 	private SpriteRenderer spriteRenderer;
 
-	public void lightMode()
+    public void KeepFloating()
+    {
+        rb2d.gravityScale = 0f;
+        isGrounded = false;
+        isFloating = true;
+        if (transform.position.y < floatPos)
+        {
+            transform.position += Vector3.up * floatSpeed;
+        }
+        if (transform.position.y > floatPos)
+        {
+            transform.position =
+                new Vector3(transform.position.x, floatPos, transform.position.z);
+        }
+    }
+
+    public void StopFloating()
+    {
+        isFloating = false;
+        rb2d.gravityScale = gravity;
+    }
+
+    public void CancelRigibody()
+    {
+        pauseVelocity = rb2d.velocity;
+        rb2d.velocity = Vector2.zero;
+        rb2d.isKinematic = true;
+        rigibodyLocked = true;
+    }
+
+    public void ResumeRigibody()
+    {
+        rb2d.velocity = pauseVelocity;
+        rb2d.isKinematic = false;
+        rigibodyLocked = false;
+    }
+
+    public void lightMode()
 	{
 		spriteRenderer.sprite = lightStatus;
 	}
@@ -108,7 +147,7 @@ public class PlayerController : MonoBehaviour
 			{
 				jump = true;
 			}
-			if (rigibodyLocked)
+			if (rigibodyLocked && !playerTrapped)
 			{
 				ResumeRigibody();
 			}
@@ -219,21 +258,6 @@ public class PlayerController : MonoBehaviour
 		jump = false;
 	}
 
-	private void CancelRigibody()
-	{
-		pauseVelocity = rb2d.velocity;
-		rb2d.velocity = Vector2.zero;
-		rb2d.isKinematic = true;
-		rigibodyLocked = true;
-	}
-
-	private void ResumeRigibody()
-	{
-		rb2d.velocity = pauseVelocity;
-		rb2d.isKinematic = false;
-		rigibodyLocked = false;
-	}
-
 	private void Move()
 	{
 		Vector3 targetVelocity = new Vector2(horizonMove, rb2d.velocity.y);
@@ -260,27 +284,6 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	private void KeepFloating()
-	{
-		rb2d.gravityScale = 0f;
-		isGrounded = false;
-		isFloating = true;
-		if (transform.position.y < floatPos)
-		{
-			transform.position += Vector3.up * floatSpeed;
-		}
-		if (transform.position.y > floatPos)
-		{
-			transform.position =
-				new Vector3(transform.position.x, floatPos, transform.position.z);
-		}
-	}
-
-	private void StopFloating()
-	{
-		isFloating = false;
-		rb2d.gravityScale = gravity;
-	}
 
 	private void OnTriggerEnter2D(Collider2D collider)
 	{

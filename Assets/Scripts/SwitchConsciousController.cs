@@ -30,7 +30,7 @@ public class SwitchConsciousController : MonoBehaviour {
             if (isKeyFEnabled && KeyF) 
             {
                 KeyF.interactable = true;
-                if (Input.GetKeyDown("f"))
+                if (Input.GetKeyDown("f") && isKeyFEnabled)
                 {
                     KeyF.interactable = false;
                     isKeyFEnabled = false;
@@ -47,10 +47,12 @@ public class SwitchConsciousController : MonoBehaviour {
                     isSubShow = !isSubShow;
                     if (playerController.isTrapped())
                     {
-                        playerController.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                        playerController.GetComponent<Rigidbody2D>().isKinematic = true;
-                        playerController.GetComponent<Collider2D>().enabled = false;
-                        FallBack();
+                        playerController.StopFloating();
+                        playerController.CancelRigibody();
+                        playerController.GetComponent<CircleCollider2D>().isTrigger = true;
+                        playerController.playerTrapped = true;
+                        count1 = 0;
+                        cantest = true;
                     }
                 }
             }
@@ -79,11 +81,11 @@ public class SwitchConsciousController : MonoBehaviour {
         {
             count1++;
         }
+        FallBack();
     }
 
     private void FallBack()
     {
-        cantest = true;
         if (playerController.isTrapped() && count1 >= rate)
         {
             anim.Play();
@@ -99,11 +101,8 @@ public class SwitchConsciousController : MonoBehaviour {
                     conscious.SetActive(false);
                 }
                 isSubShow = !isSubShow;
+                cantest = false;
             }
         }
-        playerController.GetComponent<Collider2D>().enabled = true;
-        playerController.GetComponent<Rigidbody2D>().isKinematic = false;
-        count1 = 0;
-        cantest = false;
     }
 }
