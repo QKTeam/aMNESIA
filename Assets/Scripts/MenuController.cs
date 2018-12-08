@@ -27,8 +27,7 @@ public class MenuController : MonoBehaviour
 	{
 		GlobalController.currentLevel = 0;
 		GlobalController.SaveFile();
-		// TODO: Load CG Scene
-		SceneManager.LoadScene("Level1");
+		SceneManager.LoadScene("Opening");
 	}
 
 	public void LoadLevelSelector() 
