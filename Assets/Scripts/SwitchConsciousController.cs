@@ -70,7 +70,6 @@ public class SwitchConsciousController : MonoBehaviour {
                     cantest = true;
                 }
             }
-            isKeyFDown = false;
         }
         else
         {
@@ -84,6 +83,7 @@ public class SwitchConsciousController : MonoBehaviour {
             ++count1;
             FallBack();
         }
+        isKeyFDown = false;
     }
 
     private void FallBack()
