@@ -66,6 +66,7 @@ public class MainController : MonoBehaviour
 			{
 				if (Input.GetKeyDown(KeyCode.Escape))
 				{
+                    Debug.Log("fuck");
 					GameMenu.SetActive(true);
 					GlobalController.gameRunning = false;
 					gameStopStatus = "Pause";
