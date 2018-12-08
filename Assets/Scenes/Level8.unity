@@ -5947,7 +5947,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameStopStatus: 
   memoryPieceNum: 4
-  victoryWaitTime: 50
+  victoryWaitTime: 200
   restartWaitTime: 100
   doorController: {fileID: 199121330}
   GameMenu: {fileID: 1851724904}
