@@ -90,7 +90,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -182,7 +182,36 @@ MonoBehaviour:
   - {fileID: 114091895808356258}
   - {fileID: 114721673751264570}
   startText: []
-  bindText: []
+  bindText:
+  - content: "\u540C\u5E74\u7EA7\u7684\u540C\u5B66\u5C45\u7136\u4E3A\u4E86\u5956\u5B66\u91D1\u4E0D\u62E9\u624B\u6BB5\n\u672C\u6765\u5C5E\u4E8E\u6211\u7684\u90A3\u4E00\u4EFD\u5C31\u8FD9\u6837\u88AB\u593A\u53BB\u4E86"
+    isForever: 0
+    shown: 0
+    delay: 3
+    nextIndex: -1
+    type: 1
+    bindObject: {fileID: 0}
+  - content: "\u6E05\u6C34\u6CB3\u516C\u56ED\u53C8\u53D8\u5F97\u62E5\u6324\u4E0D\u582A\uFF0C\u5783\u573E\u4E22\u7684\u6574\u4E2A\u8349\u576A\u90FD\u662F"
+    isForever: 0
+    shown: 0
+    delay: 3
+    nextIndex: -1
+    type: 1
+    bindObject: {fileID: 0}
+  - content: "\u4F18\u73ED\u7B54\u8FA9\u7EC8\u7A76\u8FD8\u662F\u5931\u8D25\u4E86\uFF0C\u73ED\u4E0A\u7684\u4EBA\u90FD\u89C9\u5F97\u6211\u6839\u672C\u6CA1\u7528\u5FC3\u505A"
+    isForever: 0
+    shown: 0
+    delay: 3
+    nextIndex: -1
+    type: 1
+    bindObject: {fileID: 0}
+  - content: "\u8F85\u5BFC\u5458\u627E\u5230\u4E86\u6211\uFF0C\u8BF4\u6211\u6700\u8FD1\u6709\u4E9B\u95EE\u9898\uFF0C\u603B\u662F\u62B1\u6028\n\u8FD9\u4E5F\u662F\u6211\u7684\u95EE\u9898\uFF1F\u5FC3\u7D2F\u3002"
+    isForever: 0
+    shown: 0
+    delay: 3
+    nextIndex: -1
+    type: 1
+    bindObject: {fileID: 0}
+  main: {fileID: 0}
 --- !u!222 &222278607967667018
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -215,7 +244,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &224537804006545686
 RectTransform:
@@ -253,7 +282,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 35}
-  m_SizeDelta: {x: 420, y: 30}
+  m_SizeDelta: {x: 420, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224936920273515110
 RectTransform:
@@ -271,5 +300,5 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 35}
-  m_SizeDelta: {x: 420, y: 30}
+  m_SizeDelta: {x: 420, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
