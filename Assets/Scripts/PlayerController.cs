@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform rightCheck;
 	[SerializeField] private Transform floatCheck;
 	[SerializeField] private MainController main;
+	[SerializeField] private SubtitleController subtitleController;
 
 	const float checkRadius = .01f;
 
@@ -295,6 +296,7 @@ public class PlayerController : MonoBehaviour
 				Debug.Log("Can't go");
 			}
 		}
+		subtitleController.CollisionEvent(collider);
 	}
 
 	private void OnTriggerExit2D(Collider2D collider)

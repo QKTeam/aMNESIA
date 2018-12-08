@@ -8,8 +8,10 @@ public class Subtitle
 		Start,// The text when scene starting
 		BindObject,// The text when colliding object
 	}
+	[TextArea]
 	public string content;
-	public bool isForever;
+	public bool isForever = false;
+	public bool shown = false;
 	public float delay;
 	public int nextIndex = -1;
 	public SubtitleType type;

@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -181,6 +181,8 @@ MonoBehaviour:
   subtitle:
   - {fileID: 114091895808356258}
   - {fileID: 114721673751264570}
+  startText: []
+  bindText: []
 --- !u!222 &222278607967667018
 CanvasRenderer:
   m_ObjectHideFlags: 1

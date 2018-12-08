@@ -8,6 +8,7 @@ public class SubtitleController : MonoBehaviour
 	[SerializeField] private Text[] subtitle;
 	[SerializeField] private Subtitle[] startText;
 	[SerializeField] private Subtitle[] bindText;
+	[SerializeField] private MainController main;
 
 	private int writtenIndex = 0;
 	private int shownIndex = 1;
@@ -19,7 +20,28 @@ public class SubtitleController : MonoBehaviour
 		if (startText.Length > 0)
 		{
 			currentText = startText[0];
+			currentText.shown = true;
 			Showtext(currentText.content, currentText.delay);
+		}
+	}
+
+	public void CollisionEvent(Collider2D collider)
+	{
+		if (collider.tag == "Door" && main.gameStopStatus != "Victory")
+		{
+			return;
+		}
+		for (int i = 0; i < bindText.Length; ++i)
+		{
+			if (bindText[i].bindObject && !bindText[i].shown)
+			{
+				if (bindText[i].bindObject == collider.gameObject)
+				{
+					currentText = bindText[i];
+					currentText.shown = true;
+					Showtext(currentText.content, currentText.delay);
+				}
+			}
 		}
 	}
 
@@ -49,11 +71,12 @@ public class SubtitleController : MonoBehaviour
 					currentText = startText[currentText.nextIndex];
 					break;
 				case "BindObject":
-					currentText = startText[currentText.nextIndex];
+					currentText = bindText[currentText.nextIndex];
 					break;
 				default:
 					break;
 			}
+			currentText.shown = true;
 			Showtext(currentText.content, currentText.delay);
 		}
 		else
