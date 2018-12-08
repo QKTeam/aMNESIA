@@ -38,9 +38,9 @@ public class FallingFloor : MonoBehaviour
 					checkRadius,
 					playerLayer
 				);
-				for (int j = 0; j < colliders.Length; i++)
+				for (int j = 0; j < colliders.Length; ++j)
 				{
-					if (colliders[i].gameObject != gameObject)
+					if (colliders[j].gameObject != gameObject)
 					{
 						timing = true;
 						break;
