@@ -27,7 +27,7 @@ public class SwitchConsciousController : MonoBehaviour {
 	{
         if (GlobalController.gameRunning)
         {
-            if (isKeyFEnabled) 
+            if (isKeyFEnabled && KeyF) 
             {
                 KeyF.interactable = true;
                 if (Input.GetKeyDown("f"))
@@ -56,7 +56,10 @@ public class SwitchConsciousController : MonoBehaviour {
             }
             else
             {
-                KeyF.interactable = false;
+                if (KeyF)
+                {
+                    KeyF.interactable = false;
+                }
             }
         }
 	}
