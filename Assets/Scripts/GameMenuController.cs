@@ -10,6 +10,7 @@ public class GameMenuController : MonoBehaviour
 	public void ResumeGame()
     {
         GameMenu.SetActive(false);
+        GlobalController.gameRunning = true;
     }
 
     public void ReturnMainMenu()
