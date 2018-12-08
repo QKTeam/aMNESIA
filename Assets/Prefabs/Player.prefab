@@ -261,12 +261,15 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  lightStatus: {fileID: 21300000, guid: 93498c49a12a0a740bc947be67135595, type: 3}
+  darkStatus: {fileID: 21300000, guid: a1edb205920757c4d826ee836289c099, type: 3}
   groundCheck: {fileID: 4213248668851176}
   topCheck: {fileID: 4452566848747656}
   leftCheck: {fileID: 4461628283234570}
   rightCheck: {fileID: 4967832347081508}
   floatCheck: {fileID: 0}
   main: {fileID: 0}
+  subtitleController: {fileID: 0}
 --- !u!198 &198384499037785286
 ParticleSystem:
   m_ObjectHideFlags: 1

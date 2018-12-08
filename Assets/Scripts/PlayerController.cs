@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private float staticWaitTime = 120f;// While player no input
 	[Range(0, .3f)] [SerializeField] private float moveSmoothing = .05f;
 	[SerializeField] private LayerMask groundLayer;
+	[SerializeField] private Sprite lightStatus;
+	[SerializeField] private Sprite darkStatus;
 	[SerializeField] private Transform groundCheck;
     [SerializeField] private Transform topCheck;
     [SerializeField] private Transform leftCheck;
@@ -37,6 +39,17 @@ public class PlayerController : MonoBehaviour
 	private Vector3 n_velocity = Vector3.zero;
 	private Vector2 pauseVelocity = Vector2.zero;
 	private GameObject windZone;
+	private SpriteRenderer spriteRenderer;
+
+	public void lightMode()
+	{
+		spriteRenderer.sprite = lightStatus;
+	}
+
+	public void darkMode()
+	{
+		spriteRenderer.sprite = darkStatus;
+	}
 
     public bool isTrapped()
     {
@@ -79,6 +92,7 @@ public class PlayerController : MonoBehaviour
 
 	private void Awake()
 	{
+		spriteRenderer = GetComponent<SpriteRenderer>();
 		rb2d = GetComponent<Rigidbody2D>();
 		gravity = rb2d.gravityScale;
 		floatCheck.position = groundCheck.position;
