@@ -34,8 +34,8 @@ public class SwitchConsciousController : MonoBehaviour {
 
     public void RestoreCollider()
     {
-        conscious.GetComponent<TilemapCollider2D>().isTrigger = false;
-        subconsious.GetComponent<TilemapCollider2D>().isTrigger = false;
+        conscious.GetComponent<TilemapCollider2D>().enabled = true;
+        subconsious.GetComponent<TilemapCollider2D>().enabled = true;
     }
 
     private void Start()
@@ -70,13 +70,13 @@ public class SwitchConsciousController : MonoBehaviour {
                 isKeyFEnabled = false;
                 if (isSubShow)
                 {
-                    subconsious.GetComponent<TilemapCollider2D>().isTrigger = true;
+                    subconsious.GetComponent<TilemapCollider2D>().enabled = false;
                     MaskPrehandle(conscious, subconsious);
                     mask.GetComponent<Animation>().Play();
                 }
                 else
                 {
-                    conscious.GetComponent<TilemapCollider2D>().isTrigger = true;
+                    conscious.GetComponent<TilemapCollider2D>().enabled = false;
                     MaskPrehandle(subconsious, conscious);
                     mask.GetComponent<Animation>().Play();
                 }
@@ -147,13 +147,13 @@ public class SwitchConsciousController : MonoBehaviour {
             if (count1 >= 2 * rate) {
                 if (isSubShow)
                 {
-                    subconsious.GetComponent<TilemapCollider2D>().isTrigger = true;
+                    subconsious.GetComponent<TilemapCollider2D>().enabled = false;
                     MaskPrehandle(conscious, subconsious);
                     mask.GetComponent<Animation>().Play();
                 }
                 else
                 {
-                    conscious.GetComponent<TilemapCollider2D>().isTrigger = true;
+                    conscious.GetComponent<TilemapCollider2D>().enabled = false;
                     MaskPrehandle(subconsious, conscious);
                     mask.GetComponent<Animation>().Play();
                 }
