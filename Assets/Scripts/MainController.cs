@@ -15,7 +15,7 @@ public class MainController : MonoBehaviour
 
 	private float countTime = 0f;
 	private int currentSceneIndex;
-	private int levelOffset = -1;
+	private int levelOffset = -2;
 
 	private void Awake()
 	{
@@ -50,8 +50,11 @@ public class MainController : MonoBehaviour
 		gameStopStatus = "Victory";
 		doorController.OpenDoor();
 		countTime = 0f;
-		GlobalController.currentLevel = currentSceneIndex + 1 + levelOffset;
-		GlobalController.SaveFile();
+		if (currentSceneIndex + 1 + levelOffset > GlobalController.currentLevel)
+		{
+			GlobalController.currentLevel = currentSceneIndex + 1 + levelOffset;
+			GlobalController.SaveFile();
+		}
 	}
 
 	private void Update()
