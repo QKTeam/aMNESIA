@@ -296,7 +296,7 @@ MonoBehaviour:
   memoryPieceNum: 3
   victoryWaitTime: 200
   restartWaitTime: 100
-  doorController: {fileID: 0}
+  doorController: {fileID: 600531333}
   GameMenu: {fileID: 961170314}
 --- !u!114 &294915200
 MonoBehaviour:
@@ -564,6 +564,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4105469824325338, guid: 49a473134d60a8e44ae3c8038f9ab1c3,
     type: 2}
   m_PrefabInternal: {fileID: 1771927468}
+--- !u!114 &600531333 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114139693047755448, guid: 3cae18caef9899240879a92c4f54ce3c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1542965651}
+  m_Script: {fileID: 11500000, guid: 7b61328ece9cf994080f9cd45c5ac03c, type: 3}
 --- !u!1 &700019671
 GameObject:
   m_ObjectHideFlags: 0
