@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 	private float horizonMove = 0f;
 	private float gravity;
 	private float floatPos;
+	private string currentState = "Normal";
 	private float waitTime = 0f;// While player no input
 	private Rigidbody2D rb2d;
 	private Vector3 groundPos;// Player's position when grounding
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour
 	private Vector2 pauseVelocity = Vector2.zero;
 	private GameObject windZone;
 	private SpriteRenderer spriteRenderer;
+	private Animator animator;
 
     public void KeepFloating()
     {
@@ -132,6 +134,7 @@ public class PlayerController : MonoBehaviour
 	private void Awake()
 	{
 		spriteRenderer = GetComponent<SpriteRenderer>();
+		animator = GetComponent<Animator>();
 		rb2d = GetComponent<Rigidbody2D>();
 		gravity = rb2d.gravityScale;
 		floatCheck.position = groundCheck.position;
@@ -253,6 +256,38 @@ public class PlayerController : MonoBehaviour
             rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
             rb2d.AddForce(wind.direction * wind.strength);
         }
+		// Handle Player animation
+		if (isGrounded || isFloating)
+		{
+			if (horizonMove > 0 && currentState != "Rightward")
+			{
+				animator.Play("Rightward");
+				currentState = "Rightward";
+			}
+			else if (horizonMove < 0 && currentState != "Leftward")
+			{
+				animator.Play("Leftward");
+				currentState = "Leftward";
+			}
+			else if (horizonMove == 0 && currentState != "Normal")
+			{
+				animator.Play("Normal");
+				currentState = "Normal";
+			}
+		}
+		else if (horizonMove == 0)
+		{
+			if (rb2d.velocity.y > 0 && currentState != "Upward")
+			{
+				animator.Play("Upward");
+				currentState = "Upward";
+			}
+			else if (rb2d.velocity.y < 0 && currentState != "Downward")
+			{
+				animator.Play("Downward");
+				currentState = "Downward";
+			}
+		}
         // Handle move
 		Move();
 		jump = false;
