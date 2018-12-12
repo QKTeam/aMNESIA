@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class SubtitleController : MonoBehaviour
 {
 	[SerializeField] private Text[] subtitle;
-	[SerializeField] private GameObject panel;
 	[SerializeField] private Subtitle[] startText;
 	[SerializeField] private Subtitle[] bindText;
 	[SerializeField] private MainController main;
@@ -48,7 +47,6 @@ public class SubtitleController : MonoBehaviour
 
 	public void Showtext(string text, float delaySecond)
 	{
-		panel.SetActive(true);
 		subtitle[writtenIndex].text = text;
 		if (delaySecond > 0)
 		{
@@ -84,7 +82,6 @@ public class SubtitleController : MonoBehaviour
 		else
 		{
 			subtitle[shownIndex].gameObject.SetActive(false);
-			panel.SetActive(false);
 		}
 	}
 
