@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Tilemaps;
 
 public class SwitchConsciousController : MonoBehaviour {
+    [SerializeField] private GameObject mask;
 	[SerializeField] private GameObject conscious;
 	[SerializeField] private GameObject subconsious;
     [SerializeField] private PlayerController playerController;
@@ -17,6 +18,20 @@ public class SwitchConsciousController : MonoBehaviour {
     private bool isKeyFDown = false;
     private int count1 = 0;
     private bool cantest = false;
+
+    public void SetActive()
+    {
+        if (!isSubShow)
+        {
+            subconsious.SetActive(false);
+        }
+        else
+        {
+            conscious.SetActive(false);
+        }
+        
+    }
+    
 
     private void Start()
     {
@@ -50,13 +65,65 @@ public class SwitchConsciousController : MonoBehaviour {
                 isKeyFEnabled = false;
                 if (isSubShow)
                 {
+                    for (int i = 0; i < conscious.transform.childCount; i++)
+                    {
+                        Transform child = conscious.transform;
+                        child.GetChild(i).GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+                        if (child.GetChild(i).childCount > 0)
+                        {
+                            for (int j = 0; j < child.GetChild(i).childCount; j++)
+                            {
+                                child.GetChild(i).GetChild(j).GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+                            }
+                        }
+                    }
+                    for (int i = 0; i < subconsious.transform.childCount; i++)
+                    {
+                        Transform child = subconsious.transform;
+                        child.GetChild(i).GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+                        if (child.GetChild(i).childCount > 0)
+                        {
+                            for (int j = 0; j < child.GetChild(i).childCount; j++)
+                            {
+                                child.GetChild(i).GetChild(j).GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+                            }
+                        }
+                    }
+                    conscious.GetComponent<TilemapRenderer>().maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+                    subconsious.GetComponent<TilemapRenderer>().maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
                     conscious.SetActive(true);
-                    subconsious.SetActive(false);
+                    mask.GetComponent<Animation>().Play();
                 }
                 else
                 {
+                    for (int i = 0; i < conscious.transform.childCount; i++)
+                    {
+                        Transform child = conscious.transform;
+                        child.GetChild(i).GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+                        if (child.GetChild(i).childCount > 0)
+                        {
+                            for (int j = 0; j < child.GetChild(i).childCount; j++)
+                            {
+                                child.GetChild(i).GetChild(j).GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+                            }
+                        }
+                    }
+                    for (int i = 0; i < subconsious.transform.childCount; i++)
+                    {
+                        Transform child = subconsious.transform;
+                        child.GetChild(i).GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+                        if (child.GetChild(i).childCount > 0)
+                        {
+                            for (int j = 0; j < child.childCount; j++)
+                            {
+                                child.GetChild(i).GetChild(j).GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+                            }
+                        }
+                    }
+                    conscious.GetComponent<TilemapRenderer>().maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+                    subconsious.GetComponent<TilemapRenderer>().maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
                     subconsious.SetActive(true);
-                    conscious.SetActive(false);
+                    mask.GetComponent<Animation>().Play();
                 }
                 isSubShow = !isSubShow;
                 if (playerController.isTrapped())
