@@ -13,7 +13,7 @@ public class OpeningSubtitle : MonoBehaviour {
 		Present.SetActive(false);
 		if (Next.name == "Empty")
 		{
-			SceneManager.LoadScene("Level1");
+			SceneManager.LoadScene("TalkingScene");
 		}
 		else if (Next.name == "End")
 		{
