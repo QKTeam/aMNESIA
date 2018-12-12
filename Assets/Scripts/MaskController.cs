@@ -5,9 +5,16 @@ using UnityEngine;
 public class MaskController : MonoBehaviour {
 
     [SerializeField] private SwitchConsciousController SwitchController;
+    [SerializeField] private Transform player;
 
-    private void SetActiveFalse()
+    private void Update()
     {
-        SwitchController.SetActive();
+        transform.position = player.position;
+    }
+
+    private void FreezeMap()
+    {
+        SwitchController.HideMap();
+        SwitchController.RestoreCollider();
     }
 }
