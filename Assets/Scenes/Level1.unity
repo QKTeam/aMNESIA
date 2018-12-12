@@ -4129,6 +4129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30bc93407133596499a0c1ed56252512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mask: {fileID: 0}
   conscious: {fileID: 11562140}
   subconsious: {fileID: 0}
   playerController: {fileID: 2055166709}
@@ -11636,17 +11637,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1864155499401794, guid: 6174288c624d7ed46bb2697b6693fed3, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224825718949752254, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 114091895808356258, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
       propertyPath: m_FontData.m_Alignment
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1555071269463746, guid: 6174288c624d7ed46bb2697b6693fed3, type: 2}
       propertyPath: m_IsActive
@@ -11655,12 +11656,12 @@ Prefab:
     - target: {fileID: 224936920273515110, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 114721673751264570, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
       propertyPath: m_FontData.m_Alignment
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3, type: 2}
