@@ -113,29 +113,47 @@ public class SwitchConsciousController : MonoBehaviour {
         for (int i = 0; i < mapShow.transform.childCount; i++)
         {
             Transform child = mapShow.transform;
-            child.GetChild(i).GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
-            if (child.GetChild(i).childCount > 0)
+            if (child.GetChild(i).GetComponent<SpriteRenderer>())
             {
-                for (int j = 0; j < child.GetChild(i).childCount; j++)
+                child.GetChild(i).GetComponent<SpriteRenderer>().maskInteraction =
+                    SpriteMaskInteraction.VisibleInsideMask;
+                if (child.GetChild(i).childCount > 0)
                 {
-                    child.GetChild(i).GetChild(j).GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+                    for (int j = 0; j < child.GetChild(i).childCount; j++)
+                    {
+                        if (child.GetChild(i).GetChild(j).GetComponent<SpriteRenderer>())
+                        {
+                            child.GetChild(i).GetChild(j).GetComponent<SpriteRenderer>().maskInteraction =
+                                SpriteMaskInteraction.VisibleInsideMask;
+                        }
+                    }
                 }
             }
         }
         for (int i = 0; i < mapHide.transform.childCount; i++)
         {
             Transform child = mapHide.transform;
-            child.GetChild(i).GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
-            if (child.GetChild(i).childCount > 0)
+            if (child.GetChild(i).GetComponent<SpriteRenderer>())
             {
-                for (int j = 0; j < child.GetChild(i).childCount; j++)
+                child.GetChild(i).GetComponent<SpriteRenderer>().maskInteraction =
+                    SpriteMaskInteraction.VisibleOutsideMask;
+                if (child.GetChild(i).childCount > 0)
                 {
-                    child.GetChild(i).GetChild(j).GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+                    for (int j = 0; j < child.GetChild(i).childCount; j++)
+                    {
+                        if (child.GetChild(i).GetChild(j).GetComponent<SpriteRenderer>())
+                        {
+                            child.GetChild(i).GetChild(j).GetComponent<SpriteRenderer>().maskInteraction =
+                                SpriteMaskInteraction.VisibleOutsideMask;
+                        }
+                    }
                 }
             }
         }
-        mapShow.GetComponent<TilemapRenderer>().maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
-        mapHide.GetComponent<TilemapRenderer>().maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+        mapShow.GetComponent<TilemapRenderer>().maskInteraction =
+            SpriteMaskInteraction.VisibleInsideMask;
+        mapHide.GetComponent<TilemapRenderer>().maskInteraction =
+            SpriteMaskInteraction.VisibleOutsideMask;
         mapShow.SetActive(true);
     }
 
