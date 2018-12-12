@@ -10521,7 +10521,7 @@ Prefab:
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
       propertyPath: startText.Array.data[0].content
-      value: "\u201C\u6211\u7ED9\u4F60\u5E26\u4E86\u4E00\u4E2A\u793C\u7269\uFF0C\u597D\u597D\u4F7F\u7528\u201D"
+      value: "\u201C\u6211\u7ED9\u4F60\u51C6\u5907\u4E86\u4E00\u4E2A\u793C\u7269\uFF0C\u597D\u597D\u4F7F\u7528\u201D"
       objectReference: {fileID: 0}
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
@@ -10536,12 +10536,12 @@ Prefab:
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
       propertyPath: bindText.Array.data[0].content
-      value: "\uFF08\u4ECA\u5929\u5929\u6C14\u771F\u4E0D\u9519\uFF0C\u9633\u5149\u660E\u5A9A\u7684\uFF0C\u6E05\u6C34\u6CB3\u516C\u56ED\u4E00\u5982\u5F80\u5E38\u7684\u70ED\u95F9\uFF0C\u4ECA\u591C\u8FD8\u662F\u4E07\u5723\u8282\uFF0C\u771F\u7684\u7F8E\u6ECB\u6ECB\uFF09"
+      value: "\uFF08\u4ECA\u5929\u5929\u6C14\u771F\u597D\uFF0C\u6E05\u6C34\u6CB3\u516C\u56ED\u70ED\u95F9\u4F9D\u65E7\uFF0C\u7F8E\u6ECB\u6ECB\uFF09"
       objectReference: {fileID: 0}
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
       propertyPath: bindText.Array.data[0].delay
-      value: 5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
@@ -10561,7 +10561,7 @@ Prefab:
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
       propertyPath: bindText.Array.data[1].content
-      value: "\uFF08\u7238\u5988\u628A\u6211\u6700\u7231\u7684\u6E38\u620F\u673A\u5F53\u4F5C\u751F\u65E5\u793C\u7269\u9001\u7ED9\u6211\uFF0C\u8D85\u5F00\u5FC3~\uFF09"
+      value: "\uFF08\u7238\u5988\u9001\u4E86\u6211\u6700\u559C\u7231\u7684\u6E38\u620F\u673A\uFF0C\u8D85\u5F00\u5FC3\uFF09"
       objectReference: {fileID: 0}
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
@@ -10591,7 +10591,7 @@ Prefab:
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
       propertyPath: bindText.Array.data[2].delay
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
@@ -10631,7 +10631,7 @@ Prefab:
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
       propertyPath: bindText.Array.data[4].content
-      value: "\u5F53\u7136\uFF0C\u5931\u5FC6\u524D\u7684\u6211\u80AF\u5B9A\u662F\u4E00\u4E2A\u5FEB\u4E50\u7684\u4EBA"
+      value: "\u5F53\u7136\uFF0C\u5931\u5FC6\u524D\u6211\u80AF\u5B9A\u5F88\u5FEB\u4E50"
       objectReference: {fileID: 0}
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}

@@ -777,6 +777,11 @@ Prefab:
       propertyPath: bindText.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
+        type: 2}
+      propertyPath: startText.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 224537804006545686, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
       propertyPath: m_RootOrder
@@ -885,12 +890,12 @@ Prefab:
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
       propertyPath: bindText.Array.data[0].content
-      value: "\uFF08\u6700\u8FD1\u7F8E\u8D5B\u6A21\u62DF\uFF0C\u961F\u53CB\u4E00\u4E2A\u4E2A\u90FD\u5212\u6C34\uFF0C\u53C8\u662F\u6211\u4E00\u4E2A\u4EBA\u505A\uFF09"
+      value: "\uFF08\u7F8E\u8D5B\u6A21\u62DF\uFF0C\u961F\u53CB\u90FD\u5212\u6C34\uFF0C\u54CE\u3002\u3002\u3002\uFF09"
       objectReference: {fileID: 0}
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
       propertyPath: bindText.Array.data[0].delay
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
@@ -910,12 +915,12 @@ Prefab:
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
       propertyPath: bindText.Array.data[1].content
-      value: "\uFF08\u4E34\u8FD1\u671F\u672B\uFF0C\u4E4B\u524D\u5FD9\u788C\u6B20\u4E0B\u4E86\u592A\u591A\u7684\u4E1C\u897F\uFF0C\u611F\u89C9\u6839\u672C\u8865\u4E0D\u5B8C\uFF09"
+      value: "\uFF08\u4E34\u8FD1\u671F\u672B\uFF0C\u611F\u89C9\u529F\u8BFE\u6839\u672C\u8865\u4E0D\u5B8C\uFF09"
       objectReference: {fileID: 0}
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
       propertyPath: bindText.Array.data[1].delay
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
@@ -935,7 +940,7 @@ Prefab:
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
       propertyPath: bindText.Array.data[2].content
-      value: "\uFF08\u6211\u52A0\u5165\u7684\u5DE5\u4F5C\u5BA4\u573A\u5730\u6700\u8FD1\u88AB\u6CA1\u6536\u4E86\uFF0C\u524D\u9014\u5B9E\u5728\u582A\u5FE7\uFF09"
+      value: "\uFF08\u6211\u88AB\u5DE5\u4F5C\u5BA4\u7092\u4E86\uFF0C\u524D\u9014\u5B9E\u5728\u582A\u5FE7\uFF09"
       objectReference: {fileID: 0}
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
@@ -950,11 +955,26 @@ Prefab:
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
       propertyPath: bindText.Array.data[2].delay
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
       propertyPath: bindText.Array.data[2].nextIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
+        type: 2}
+      propertyPath: startText.Array.data[0].content
+      value: "\uFF08\u5FC3\u7406\u5B66\u5BB6\u8BA4\u4E3A\uFF0C\u4EBA\u5B58\u5728\u7740\u6F5C\u610F\u8BC6\uFF09"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
+        type: 2}
+      propertyPath: startText.Array.data[0].delay
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
+        type: 2}
+      propertyPath: startText.Array.data[0].nextIndex
       value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

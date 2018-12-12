@@ -20605,6 +20605,21 @@ Prefab:
       propertyPath: main
       value: 
       objectReference: {fileID: 64099474}
+    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
+        type: 2}
+      propertyPath: bindText.Array.data[0].content
+      value: "\u8FD9\u662F\u6211\u7684\u6F5C\u610F\u8BC6\uFF1F"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
+        type: 2}
+      propertyPath: bindText.Array.data[2].content
+      value: "\uFF08\u540C\u5B66\u4EEC\u90FD\u652F\u6301\u6211\u505A\u73ED\u957F\uFF0C\u597D\u5F00\u5FC3\u9E2D\uFF09"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
+        type: 2}
+      propertyPath: bindText.Array.data[5].content
+      value: "\u5979\u603B\u662F\u81EA\u8A00\u81EA\u8BED\u5417\uFF1F"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6174288c624d7ed46bb2697b6693fed3, type: 2}
   m_IsPrefabAsset: 0
