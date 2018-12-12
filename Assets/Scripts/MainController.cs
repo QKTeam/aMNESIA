@@ -15,7 +15,7 @@ public class MainController : MonoBehaviour
 
 	private float countTime = 0f;
 	private int currentSceneIndex;
-	private int levelOffset = -2;
+	private int levelOffset = -3;
 
 	private void Awake()
 	{

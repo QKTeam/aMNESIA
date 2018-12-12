@@ -7,7 +7,13 @@ public class OpeningSubtitle : MonoBehaviour {
 
 	[SerializeField] private GameObject Present;
 	[SerializeField] private GameObject Next;
-	// Use this for initialization
+	
+	private void Start()
+	{
+		GlobalController.currentLevel = 1;
+		GlobalController.SaveFile();
+	}
+
 	public void ChangeSubtitle()
 	{
 		Present.SetActive(false);
