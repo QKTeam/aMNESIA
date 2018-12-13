@@ -84,12 +84,18 @@ public class PlayerController : MonoBehaviour
 
     public void lightMode()
 	{
-		spriteRenderer.sprite = lightStatus;
+		if (animator.GetCurrentAnimatorStateInfo(0).IsName("CloseEye"))
+		{
+			animator.Play("OpenEye");
+		}
 	}
 
 	public void darkMode()
 	{
-		spriteRenderer.sprite = darkStatus;
+		if (!animator.GetCurrentAnimatorStateInfo(0).IsName("CloseEye"))
+		{
+			animator.Play("CloseEye");
+		}
 	}
 
     public bool isTrapped()
@@ -257,35 +263,38 @@ public class PlayerController : MonoBehaviour
             rb2d.AddForce(wind.direction * wind.strength);
         }
 		// Handle Player animation
-		if (isGrounded || isFloating)
+		if (!animator.GetCurrentAnimatorStateInfo(0).IsName("CloseEye"))
 		{
-			if (horizonMove > 0 && currentState != "Rightward")
+			if (isGrounded || isFloating)
 			{
-				animator.Play("Rightward");
-				currentState = "Rightward";
+				if (horizonMove > 0 && currentState != "Rightward")
+				{
+					animator.Play("Rightward");
+					currentState = "Rightward";
+				}
+				else if (horizonMove < 0 && currentState != "Leftward")
+				{
+					animator.Play("Leftward");
+					currentState = "Leftward";
+				}
+				else if (horizonMove == 0 && currentState != "Normal")
+				{
+					animator.Play("Normal");
+					currentState = "Normal";
+				}
 			}
-			else if (horizonMove < 0 && currentState != "Leftward")
+			else if (horizonMove == 0)
 			{
-				animator.Play("Leftward");
-				currentState = "Leftward";
-			}
-			else if (horizonMove == 0 && currentState != "Normal")
-			{
-				animator.Play("Normal");
-				currentState = "Normal";
-			}
-		}
-		else if (horizonMove == 0)
-		{
-			if (rb2d.velocity.y > 0 && currentState != "Upward")
-			{
-				animator.Play("Upward");
-				currentState = "Upward";
-			}
-			else if (rb2d.velocity.y < 0 && currentState != "Downward")
-			{
-				animator.Play("Downward");
-				currentState = "Downward";
+				if (rb2d.velocity.y > 0 && currentState != "Upward")
+				{
+					animator.Play("Upward");
+					currentState = "Upward";
+				}
+				else if (rb2d.velocity.y < 0 && currentState != "Downward")
+				{
+					animator.Play("Downward");
+					currentState = "Downward";
+				}
 			}
 		}
         // Handle move

@@ -275,7 +275,7 @@ MonoBehaviour:
   moveSpeed: 130
   jumpForce: 320
   floatSpeed: 0.02
-  floatHeight: 0.3
+  floatHeight: 0.35
   staticWaitTime: 120
   moveSmoothing: 0.05
   groundLayer:
