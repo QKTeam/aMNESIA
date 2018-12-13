@@ -36,6 +36,42 @@ public class SwitchConsciousController : MonoBehaviour {
     {
         conscious.GetComponent<TilemapCollider2D>().enabled = true;
         subconsious.GetComponent<TilemapCollider2D>().enabled = true;
+        for (int i = 0; i < conscious.transform.childCount; i++)
+        {
+            Transform child = conscious.transform;
+            if (child.GetChild(i).GetComponent<Collider2D>())
+            {
+                child.GetChild(i).GetComponent<Collider2D>().enabled = true;
+                if (child.GetChild(i).childCount > 0)
+                {
+                    for (int j = 0; j < child.GetChild(i).childCount; j++)
+                    {
+                        if (child.GetChild(i).GetChild(j).GetComponent<Collider2D>())
+                        {
+                            child.GetChild(i).GetChild(j).GetComponent<Collider2D>().enabled = true;
+                        }
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < subconsious.transform.childCount; i++)
+        {
+            Transform child = subconsious.transform;
+            if (child.GetChild(i).GetComponent<Collider2D>())
+            {
+                child.GetChild(i).GetComponent<Collider2D>().enabled = true;
+                if (child.GetChild(i).childCount > 0)
+                {
+                    for (int j = 0; j < child.GetChild(i).childCount; j++)
+                    {
+                        if (child.GetChild(i).GetChild(j).GetComponent<Collider2D>())
+                        {
+                            child.GetChild(i).GetChild(j).GetComponent<Collider2D>().enabled = true;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private void Start()
@@ -145,6 +181,20 @@ public class SwitchConsciousController : MonoBehaviour {
                         {
                             child.GetChild(i).GetChild(j).GetComponent<SpriteRenderer>().maskInteraction =
                                 SpriteMaskInteraction.VisibleOutsideMask;
+                        }
+                    }
+                }
+            }
+            if (child.GetChild(i).GetComponent<Collider2D>())
+            {
+                child.GetChild(i).GetComponent<Collider2D>().enabled = false;
+                if (child.GetChild(i).childCount > 0)
+                {
+                    for (int j = 0; j < child.GetChild(i).childCount; j++)
+                    {
+                        if (child.GetChild(i).GetChild(j).GetComponent<Collider2D>())
+                        {
+                            child.GetChild(i).GetChild(j).GetComponent<Collider2D>().enabled = false;
                         }
                     }
                 }
