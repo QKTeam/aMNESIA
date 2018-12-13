@@ -20,7 +20,7 @@ public class TalkingController : MonoBehaviour
 		if (GlobalController.gameRunning)
 		{
 			count++;
-			if (count >= 600) {
+			if (count >= 900) {
 				doorController.OpenDoor();
 				main.playerGetPiece();
 				enabled = false;
