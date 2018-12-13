@@ -27,7 +27,7 @@ public class MenuController : MonoBehaviour
 	{
 		GlobalController.currentLevel = 0;
 		GlobalController.SaveFile();
-		SceneManager.LoadScene("Opening");
+		SceneManager.LoadScene("TalkingScene");
 	}
 
 	public void LoadLevelSelector() 
