@@ -87,15 +87,18 @@ public class SubtitleController : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		// Update delay time
-		if (m_delay > 0)
+		if (GlobalController.gameRunning)
 		{
-			--m_delay;
-		}
-		// Hide subtitle while delay equal 0
-		if (m_delay == 0 && !currentText.isForever)
-		{
-			Cleartext();
+			// Update delay time
+			if (m_delay > 0)
+			{
+				--m_delay;
+			}
+			// Hide subtitle while delay equal 0
+			if (m_delay == 0 && !currentText.isForever)
+			{
+				Cleartext();
+			}
 		}
 	}
 }

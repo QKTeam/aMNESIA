@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class MainController : MonoBehaviour
 {
 	public string gameStopStatus = "";// The reason of game stop
+	public int memoryPieceNum = 3;
 
-	[SerializeField] private int memoryPieceNum = 3;
 	[SerializeField] private float victoryWaitTime = 100f;
 	[SerializeField] private float restartWaitTime = 100f;
 	[SerializeField] private DoorController doorController;
@@ -69,7 +69,6 @@ public class MainController : MonoBehaviour
 			{
 				if (Input.GetKeyDown(KeyCode.Escape))
 				{
-                    Debug.Log("fuck");
 					GameMenu.SetActive(true);
 					GlobalController.gameRunning = false;
 					gameStopStatus = "Pause";
