@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelSelector.unity
     guid: cbefd61a1d966f74db9660839b9054aa
   - enabled: 1
-    path: Assets/Scenes/Opening.unity
-    guid: 50ff2f581a4124a4287edbc887e3be67
-  - enabled: 1
     path: Assets/Scenes/TalkingScene.unity
     guid: 746a2fcb7cf7f87499d962d4e553a0fb
   - enabled: 1
