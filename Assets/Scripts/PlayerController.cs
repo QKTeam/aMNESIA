@@ -42,7 +42,6 @@ public class PlayerController : MonoBehaviour
 	private Vector3 n_velocity = Vector3.zero;
 	private Vector2 pauseVelocity = Vector2.zero;
 	private GameObject windZone;
-	private SpriteRenderer spriteRenderer;
 	private Animator animator;
 
     public void KeepFloating()
@@ -139,7 +138,6 @@ public class PlayerController : MonoBehaviour
 
 	private void Awake()
 	{
-		spriteRenderer = GetComponent<SpriteRenderer>();
 		animator = GetComponent<Animator>();
 		rb2d = GetComponent<Rigidbody2D>();
 		gravity = rb2d.gravityScale;
