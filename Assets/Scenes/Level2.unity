@@ -6042,6 +6042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   main: {fileID: 64099474}
+  particle: {fileID: 198270079599896630, guid: 3b1d17d943c85f64b97c81bf19373f54, type: 2}
 --- !u!212 &508241283
 SpriteRenderer:
   m_ObjectHideFlags: 0

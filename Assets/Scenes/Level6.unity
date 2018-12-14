@@ -25850,6 +25850,15 @@ Prefab:
       propertyPath: checkRadius
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114899740366690926, guid: 3ea18d1ef4f2af04389e8640b0debad1,
+        type: 2}
+      propertyPath: isEntity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1421995881513996, guid: 3ea18d1ef4f2af04389e8640b0debad1, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ea18d1ef4f2af04389e8640b0debad1, type: 2}
   m_IsPrefabAsset: 0

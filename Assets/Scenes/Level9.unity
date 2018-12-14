@@ -19257,11 +19257,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4756231352776314, guid: 1cdca9d8be5fdb84582aab42d9298a04, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5.64
+      value: -5.67
       objectReference: {fileID: 0}
     - target: {fileID: 4756231352776314, guid: 1cdca9d8be5fdb84582aab42d9298a04, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.23
+      value: 1.02
       objectReference: {fileID: 0}
     - target: {fileID: 4756231352776314, guid: 1cdca9d8be5fdb84582aab42d9298a04, type: 2}
       propertyPath: m_LocalPosition.z
@@ -19973,15 +19973,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1326251717926094, guid: bccf00ad5f8b6dd4f92d701327d979f2, type: 2}
-      propertyPath: m_Name
-      value: Book (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 114720449015241002, guid: bccf00ad5f8b6dd4f92d701327d979f2,
         type: 2}
       propertyPath: main
       value: 
       objectReference: {fileID: 1295209639}
+    - target: {fileID: 1326251717926094, guid: bccf00ad5f8b6dd4f92d701327d979f2, type: 2}
+      propertyPath: m_Name
+      value: Book (1)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bccf00ad5f8b6dd4f92d701327d979f2, type: 2}
   m_IsPrefabAsset: 0
@@ -27879,7 +27879,7 @@ Prefab:
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
       propertyPath: bindText.Array.data[4].nextIndex
-      value: 5
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 114974595275446726, guid: 6174288c624d7ed46bb2697b6693fed3,
         type: 2}
