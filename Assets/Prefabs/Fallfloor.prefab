@@ -256,6 +256,8 @@ MonoBehaviour:
   - {fileID: 4986196678282838}
   - {fileID: 4380873395048340}
   - {fileID: 4448533963455112}
+  brokenParticle: {fileID: 198064875351742494, guid: f983eda2b7f5c724bb59db9f5a2f8fb9,
+    type: 2}
 --- !u!212 &212380376018243226
 SpriteRenderer:
   m_ObjectHideFlags: 1

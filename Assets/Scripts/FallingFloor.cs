@@ -9,6 +9,7 @@ public class FallingFloor : MonoBehaviour
 	[SerializeField] private bool isEntity = false;
 	[SerializeField] private LayerMask playerLayer;
 	[SerializeField] private Transform[] playerCheck;
+    [SerializeField] private ParticleSystem brokenParticle;
 
 	private bool timing = false;
 	private bool afterFalling = false;
@@ -85,6 +86,7 @@ public class FallingFloor : MonoBehaviour
 		if (collider.tag == "Edge")
 		{
 			Destroy(gameObject);
-		}
+            Instantiate(brokenParticle, transform.position, Quaternion.identity);
+        }
 	}
 }
