@@ -8,6 +8,7 @@ TagManager:
   - WindZone
   - Door
   - Edge
+  - CollisionFloor
   layers:
   - Default
   - TransparentFX

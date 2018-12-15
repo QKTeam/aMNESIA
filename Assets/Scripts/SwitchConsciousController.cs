@@ -18,6 +18,7 @@ public class SwitchConsciousController : MonoBehaviour {
     private bool isKeyFDown = false;
     private int count1 = 0;
     private bool cantest = false;
+    private Dictionary<string, RigidbodyInfo> storage;
 
     public void HideMap()
     {
@@ -34,40 +35,39 @@ public class SwitchConsciousController : MonoBehaviour {
 
     public void RestoreCollider()
     {
-        conscious.GetComponent<TilemapCollider2D>().enabled = true;
-        subconsious.GetComponent<TilemapCollider2D>().enabled = true;
-        for (int i = 0; i < conscious.transform.childCount; i++)
+        GameObject map;
+        if (isSubShow)
         {
-            Transform child = conscious.transform;
-            if (child.GetChild(i).GetComponent<Collider2D>())
-            {
-                child.GetChild(i).GetComponent<Collider2D>().enabled = true;
-                if (child.GetChild(i).childCount > 0)
-                {
-                    for (int j = 0; j < child.GetChild(i).childCount; j++)
-                    {
-                        if (child.GetChild(i).GetChild(j).GetComponent<Collider2D>())
-                        {
-                            child.GetChild(i).GetChild(j).GetComponent<Collider2D>().enabled = true;
-                        }
-                    }
-                }
-            }
+            map = conscious;
         }
-        for (int i = 0; i < subconsious.transform.childCount; i++)
+        else
         {
-            Transform child = subconsious.transform;
-            if (child.GetChild(i).GetComponent<Collider2D>())
+            map = subconsious;
+        }
+        map.GetComponent<TilemapCollider2D>().enabled = true;
+        for (int i = 0; i < map.transform.childCount; i++)
+        {
+            Transform child = map.transform.GetChild(i);
+            Collider2D childCollider = child.GetComponent<Collider2D>();
+            if (child.tag == "CollisionFloor")
             {
-                child.GetChild(i).GetComponent<Collider2D>().enabled = true;
-                if (child.GetChild(i).childCount > 0)
+                RestoreRigidbody(child.GetComponent<Rigidbody2D>());
+            }
+            if (childCollider)
+            {
+                childCollider.enabled = true;
+                for (int j = 0; j < child.childCount; j++)
                 {
-                    for (int j = 0; j < child.GetChild(i).childCount; j++)
+                    Transform grandchild = child.GetChild(j);
+                    Collider2D grandchildCollider =
+                        grandchild.GetComponent<Collider2D>();
+                    if (grandchild.tag == "CollisionFloor")
                     {
-                        if (child.GetChild(i).GetChild(j).GetComponent<Collider2D>())
-                        {
-                            child.GetChild(i).GetChild(j).GetComponent<Collider2D>().enabled = true;
-                        }
+                        RestoreRigidbody(grandchild.GetComponent<Rigidbody2D>());
+                    }
+                    if (grandchildCollider)
+                    {
+                        grandchildCollider.enabled = true;
                     }
                 }
             }
@@ -77,6 +77,7 @@ public class SwitchConsciousController : MonoBehaviour {
     private void Start()
     {
         anim = playerController.GetComponent<Animation>();
+        storage = new Dictionary<string, RigidbodyInfo>();
     }
 
     private void Update()
@@ -148,55 +149,61 @@ public class SwitchConsciousController : MonoBehaviour {
     {
         for (int i = 0; i < mapShow.transform.childCount; i++)
         {
-            Transform child = mapShow.transform;
-            if (child.GetChild(i).GetComponent<SpriteRenderer>())
+            Transform child = mapShow.transform.GetChild(i);
+            SpriteRenderer childRenderer = child.GetComponent<SpriteRenderer>();
+            if (childRenderer)
             {
-                child.GetChild(i).GetComponent<SpriteRenderer>().maskInteraction =
+                childRenderer.maskInteraction =
                     SpriteMaskInteraction.VisibleInsideMask;
-                if (child.GetChild(i).childCount > 0)
+                for (int j = 0; j < child.childCount; j++)
                 {
-                    for (int j = 0; j < child.GetChild(i).childCount; j++)
+                    Transform grandchild = child.GetChild(j);
+                    SpriteRenderer grandchildRenderer =
+                        grandchild.GetComponent<SpriteRenderer>();
+                    if (grandchildRenderer)
                     {
-                        if (child.GetChild(i).GetChild(j).GetComponent<SpriteRenderer>())
-                        {
-                            child.GetChild(i).GetChild(j).GetComponent<SpriteRenderer>().maskInteraction =
-                                SpriteMaskInteraction.VisibleInsideMask;
-                        }
+                        grandchildRenderer.maskInteraction =
+                            SpriteMaskInteraction.VisibleInsideMask;
                     }
                 }
             }
         }
         for (int i = 0; i < mapHide.transform.childCount; i++)
         {
-            Transform child = mapHide.transform;
-            if (child.GetChild(i).GetComponent<SpriteRenderer>())
+            Transform child = mapHide.transform.GetChild(i);
+            SpriteRenderer childRenderer = child.GetComponent<SpriteRenderer>();
+            Collider2D childCollider = child.GetComponent<Collider2D>();
+            if (childRenderer)
             {
-                child.GetChild(i).GetComponent<SpriteRenderer>().maskInteraction =
+                childRenderer.maskInteraction =
                     SpriteMaskInteraction.VisibleOutsideMask;
-                if (child.GetChild(i).childCount > 0)
-                {
-                    for (int j = 0; j < child.GetChild(i).childCount; j++)
-                    {
-                        if (child.GetChild(i).GetChild(j).GetComponent<SpriteRenderer>())
-                        {
-                            child.GetChild(i).GetChild(j).GetComponent<SpriteRenderer>().maskInteraction =
-                                SpriteMaskInteraction.VisibleOutsideMask;
-                        }
-                    }
-                }
             }
-            if (child.GetChild(i).GetComponent<Collider2D>())
+            if (childCollider)
             {
-                child.GetChild(i).GetComponent<Collider2D>().enabled = false;
-                if (child.GetChild(i).childCount > 0)
+                childCollider.enabled = false;
+            }
+            if (child.tag == "CollisionFloor")
+            {
+                ForbidRigidbody(child.GetComponent<Rigidbody2D>());
+            }
+            for (int j = 0; j < child.childCount; j++)
+            {
+                Transform grandchild = child.GetChild(j);
+                SpriteRenderer grandchildRenderer =
+                    grandchild.GetComponent<SpriteRenderer>();
+                Collider2D grandchildCollider = grandchild.GetComponent<Collider2D>();
+                if (grandchildRenderer)
                 {
-                    for (int j = 0; j < child.GetChild(i).childCount; j++)
-                    {
-                        if (child.GetChild(i).GetChild(j).GetComponent<Collider2D>())
-                        {
-                            child.GetChild(i).GetChild(j).GetComponent<Collider2D>().enabled = false;
-                        }
-                    }
+                    grandchildRenderer.maskInteraction =
+                        SpriteMaskInteraction.VisibleOutsideMask;
+                }
+                if (grandchildCollider)
+                {
+                    grandchildCollider.enabled = false;
+                }
+                if (grandchild.tag == "CollisionFloor")
+                {
+                    ForbidRigidbody(grandchild.GetComponent<Rigidbody2D>());
                 }
             }
         }
@@ -205,6 +212,43 @@ public class SwitchConsciousController : MonoBehaviour {
         mapHide.GetComponent<TilemapRenderer>().maskInteraction =
             SpriteMaskInteraction.VisibleOutsideMask;
         mapShow.SetActive(true);
+    }
+
+    private void ForbidRigidbody(Rigidbody2D rb2d)
+    {
+        if (rb2d)
+        {
+            RigidbodyInfo rbinfo;
+            if (storage.TryGetValue(rb2d.name, out rbinfo))
+            {
+                storage[rb2d.name].velocity = rb2d.velocity;
+                storage[rb2d.name].isKinematic = rb2d.isKinematic;
+                storage[rb2d.name].gravityScale = rb2d.gravityScale;
+                storage[rb2d.name].mass = rb2d.mass;
+            }
+            else {
+                rbinfo = new RigidbodyInfo(
+                    rb2d.velocity,
+                    rb2d.isKinematic,
+                    rb2d.gravityScale,
+                    rb2d.mass
+                );
+                storage.Add(rb2d.name, rbinfo);
+            }
+            rb2d.velocity = Vector2.zero;
+            rb2d.isKinematic = true;
+        }
+    }
+
+    private void RestoreRigidbody(Rigidbody2D rb2d)
+    {
+        if (rb2d)
+        {
+            rb2d.velocity = storage[rb2d.name].velocity;
+            rb2d.isKinematic = storage[rb2d.name].isKinematic;
+            rb2d.gravityScale = storage[rb2d.name].gravityScale;
+            rb2d.mass = storage[rb2d.name].mass;
+        }
     }
 
     private void FallBack()
