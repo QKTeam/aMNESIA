@@ -793,7 +793,7 @@ GameObject:
   - component: {fileID: 611601027}
   m_Layer: 8
   m_Name: Conscious
-  m_TagString: Untagged
+  m_TagString: TileFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6654,6 +6654,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &736779279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 736779280}
+  m_Layer: 8
+  m_Name: LeftCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &736779280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 736779279}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.25, y: -0.005, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1495388030}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &783850603 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4105469824325338, guid: 49a473134d60a8e44ae3c8038f9ab1c3,
@@ -18391,6 +18419,31 @@ Prefab:
       propertyPath: m_TagString
       value: CollisionFloor
       objectReference: {fileID: 0}
+    - target: {fileID: 50042213542584616, guid: 3ea18d1ef4f2af04389e8640b0debad1,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 50042213542584616, guid: 3ea18d1ef4f2af04389e8640b0debad1,
+        type: 2}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114899740366690926, guid: 3ea18d1ef4f2af04389e8640b0debad1,
+        type: 2}
+      propertyPath: pushForce
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114899740366690926, guid: 3ea18d1ef4f2af04389e8640b0debad1,
+        type: 2}
+      propertyPath: leftCheck
+      value: 
+      objectReference: {fileID: 736779280}
+    - target: {fileID: 114899740366690926, guid: 3ea18d1ef4f2af04389e8640b0debad1,
+        type: 2}
+      propertyPath: rightCheck
+      value: 
+      objectReference: {fileID: 1711208554}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ea18d1ef4f2af04389e8640b0debad1, type: 2}
   m_IsPrefabAsset: 0
@@ -19396,7 +19449,7 @@ GameObject:
   - component: {fileID: 1435685399}
   m_Layer: 8
   m_Name: SubConscious
-  m_TagString: Untagged
+  m_TagString: TileFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26344,6 +26397,34 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 32}
   m_SizeDelta: {x: 750, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1711208553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1711208554}
+  m_Layer: 8
+  m_Name: RightCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1711208554
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1711208553}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.25, y: -0.005, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1495388030}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1756706827
 GameObject:
   m_ObjectHideFlags: 0
