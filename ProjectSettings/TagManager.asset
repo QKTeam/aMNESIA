@@ -9,6 +9,7 @@ TagManager:
   - Door
   - Edge
   - CollisionFloor
+  - TileFloor
   layers:
   - Default
   - TransparentFX
