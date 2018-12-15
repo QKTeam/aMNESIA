@@ -50,6 +50,7 @@ public class MainController : MonoBehaviour
 		gameStopStatus = "Victory";
 		doorController.OpenDoor();
 		countTime = 0f;
+		if (currentSceneIndex + 1 + levelOffset > 9) return;
 		if (currentSceneIndex + 1 + levelOffset > GlobalController.currentLevel)
 		{
 			GlobalController.currentLevel = currentSceneIndex + 1 + levelOffset;
