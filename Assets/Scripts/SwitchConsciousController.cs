@@ -39,7 +39,6 @@ public class SwitchConsciousController : MonoBehaviour {
         if (isSubShow)
         {
             map = conscious;
-            Debug.Log("fuck");
         }
         else
         {
