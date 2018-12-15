@@ -87,7 +87,7 @@ public class SubtitleController : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		if (GlobalController.gameRunning)
+		if (GlobalController.gameRunning || main.gameStopStatus == "Victory")
 		{
 			// Update delay time
 			if (m_delay > 0)
