@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4144203299782064}
   - component: {fileID: 198270079599896630}
+  - component: {fileID: 114686578605201250}
   - component: {fileID: 199559119715106950}
   m_Layer: 9
   m_Name: memoryparticle
@@ -41,6 +42,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &114686578605201250
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1948346766367346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7235e53d23d86fc439acd32bbe3476ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 2
 --- !u!198 &198270079599896630
 ParticleSystem:
   m_ObjectHideFlags: 1
