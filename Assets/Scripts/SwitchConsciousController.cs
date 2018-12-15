@@ -39,6 +39,7 @@ public class SwitchConsciousController : MonoBehaviour {
         if (isSubShow)
         {
             map = conscious;
+            Debug.Log("fuck");
         }
         else
         {
@@ -56,19 +57,19 @@ public class SwitchConsciousController : MonoBehaviour {
             if (childCollider)
             {
                 childCollider.enabled = true;
-                for (int j = 0; j < child.childCount; j++)
+            }
+            for (int j = 0; j < child.childCount; j++)
+            {
+                Transform grandchild = child.GetChild(j);
+                Collider2D grandchildCollider =
+                    grandchild.GetComponent<Collider2D>();
+                if (grandchild.tag == "CollisionFloor")
                 {
-                    Transform grandchild = child.GetChild(j);
-                    Collider2D grandchildCollider =
-                        grandchild.GetComponent<Collider2D>();
-                    if (grandchild.tag == "CollisionFloor")
-                    {
-                        RestoreRigidbody(grandchild.GetComponent<Rigidbody2D>());
-                    }
-                    if (grandchildCollider)
-                    {
-                        grandchildCollider.enabled = true;
-                    }
+                    RestoreRigidbody(grandchild.GetComponent<Rigidbody2D>());
+                }
+                if (grandchildCollider)
+                {
+                    grandchildCollider.enabled = true;
                 }
             }
         }
@@ -155,16 +156,16 @@ public class SwitchConsciousController : MonoBehaviour {
             {
                 childRenderer.maskInteraction =
                     SpriteMaskInteraction.VisibleInsideMask;
-                for (int j = 0; j < child.childCount; j++)
+            }
+            for (int j = 0; j < child.childCount; j++)
+            {
+                Transform grandchild = child.GetChild(j);
+                SpriteRenderer grandchildRenderer =
+                    grandchild.GetComponent<SpriteRenderer>();
+                if (grandchildRenderer)
                 {
-                    Transform grandchild = child.GetChild(j);
-                    SpriteRenderer grandchildRenderer =
-                        grandchild.GetComponent<SpriteRenderer>();
-                    if (grandchildRenderer)
-                    {
-                        grandchildRenderer.maskInteraction =
-                            SpriteMaskInteraction.VisibleInsideMask;
-                    }
+                    grandchildRenderer.maskInteraction =
+                        SpriteMaskInteraction.VisibleInsideMask;
                 }
             }
         }
