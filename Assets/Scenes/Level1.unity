@@ -4189,7 +4189,6 @@ GameObject:
   - component: {fileID: 227037577}
   - component: {fileID: 227037576}
   - component: {fileID: 227037575}
-  - component: {fileID: 227037574}
   - component: {fileID: 227037573}
   m_Layer: 0
   m_Name: Main Camera
@@ -4215,23 +4214,6 @@ MonoBehaviour:
   restartWaitTime: 100
   doorController: {fileID: 2066010688}
   GameMenu: {fileID: 14580013}
---- !u!114 &227037574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 227037572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30bc93407133596499a0c1ed56252512, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mask: {fileID: 0}
-  conscious: {fileID: 11562140}
-  subconsious: {fileID: 0}
-  playerController: {fileID: 2055166709}
-  ColdDown: 80
-  isSubShow: 0
 --- !u!114 &227037575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13343,12 +13325,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2055166709 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114183973082959704, guid: 1cdca9d8be5fdb84582aab42d9298a04,
-    type: 2}
-  m_PrefabInternal: {fileID: 1695276806}
-  m_Script: {fileID: 11500000, guid: c557e7a19d024644fa48de485a7baabb, type: 3}
 --- !u!1 &2066010686
 GameObject:
   m_ObjectHideFlags: 0
