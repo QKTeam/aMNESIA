@@ -269,12 +269,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &251484389 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114183973082959704, guid: 1cdca9d8be5fdb84582aab42d9298a04,
-    type: 2}
-  m_PrefabInternal: {fileID: 426722073}
-  m_Script: {fileID: 11500000, guid: c557e7a19d024644fa48de485a7baabb, type: 3}
 --- !u!1 &271638034
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,7 +515,6 @@ GameObject:
   - component: {fileID: 477919281}
   - component: {fileID: 477919285}
   - component: {fileID: 477919284}
-  - component: {fileID: 477919283}
   - component: {fileID: 477919287}
   - component: {fileID: 477919282}
   m_Layer: 0
@@ -583,23 +576,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorController: {fileID: 1600804048}
---- !u!114 &477919283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 477919280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30bc93407133596499a0c1ed56252512, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mask: {fileID: 0}
-  conscious: {fileID: 993273235}
-  subconsious: {fileID: 0}
-  playerController: {fileID: 251484389}
-  ColdDown: 80
-  isSubShow: 0
 --- !u!114 &477919284
 MonoBehaviour:
   m_ObjectHideFlags: 0
