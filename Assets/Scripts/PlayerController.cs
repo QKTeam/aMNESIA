@@ -351,11 +351,22 @@ public class PlayerController : MonoBehaviour
 				finalPos = collider.transform.position;
 				finalScale = new Vector3(0, 0, 0);
 			}
-			else {
-				Debug.Log("Can't go");
-			}
 		}
 		subtitleController.CollisionEvent(collider);
+	}
+
+	private void OnTriggerStay2D(Collider2D collider)
+	{
+		if (collider.tag == "Door" && main.gameStopStatus != "Victory")
+		{
+			if (main.GetAllPiece())
+			{
+				main.Victory();
+				CancelRigibody();
+				finalPos = collider.transform.position;
+				finalScale = new Vector3(0, 0, 0);
+			}
+		}
 	}
 
 	private void OnTriggerExit2D(Collider2D collider)
